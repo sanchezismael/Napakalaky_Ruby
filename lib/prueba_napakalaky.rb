@@ -45,6 +45,14 @@ module Napakalaki
                 nil)
     monster << Monster.new('El sopor de Dunwich', 2, bDunwich, pDunwich)
     
+    #El gorrón en el umbral
+    pGorron = Prize.new(3,1)
+    bGorron = BadConsequence.newLevelNumberOfTreasures('Pierdes todos tus 
+              tesoros visibles', 0, 5, 0)
+    monster << Monster.new('El gorrón en el umbral', 10, bGorron, pGorron)
+    
+    
+    
     
     #Esto es una prueba de que funciona
     @tre = Array.new([TreasureKind::ARMOR])

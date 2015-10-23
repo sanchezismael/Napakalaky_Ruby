@@ -85,10 +85,38 @@ module Napakalaki
     pDameargo = Prize.new(2,1)
     bDameargo = BadConsequence.newLevelSpecificTreasures('Te intentas escaquear.
                 Pierdes una mano visible', 0, [TreasureKind::ONEHAND], nil)
-    monster << Monster.new('DAmeargo', 1, bDameargo, pDameargo)
+    monster << Monster.new('Dameargo', 1, bDameargo, pDameargo)
     
+    #Pollipólipo volante
+    pPollipolito = Prize.new(1,1)
+    bPollipolito = BadConsequence.newLevelNumberOfTreasures('Da mucho asquito. Pierdes 3 niveles.', 3, 0, 0)
+    monster << Monster.new('Pollipólito volante', 3, bPollipolito, pPollipolito)
     
+    #Yskhtihyssg-Goth
+    pYskhtihyssg = Prize.new(3,1)
+    bYskhtihyssg = BadConsequence.newDeath('No le hace gracia que pronuncien mal su nombre. Estas muerto')
+    monster << Monster.new('Yskhtihyssg-Goth', 12, bYskhtihyssg, pYskhtihyssg)
     
+    #Familia Feliz
+    pFamiliaFeliz = Prize.new(4,1)
+    bFamiliaFeliz = BadConsequence.newDeath('La familia te atrapa. Estas muerto.')
+    monster << Monster.new('Familia Feliz', 1, bFamiliaFeliz, pFamiliaFeliz)
+    
+    #Roboggoth
+    pRoboggoth = Prize.new(2, 1)
+    bRoboggoth = BadConsequence.newLevelSpecificTreasures('La quinte directiva primaria te obliga a perder 2 niveles y un tesoro de 2 manos visible', 2, [TreasureKind::BOTHHANDS], nil)
+    monster << Monster.new('Roboggoth', 8, bRoboggoth, pRoboggoth)
+    
+    #El Lenguas
+    pLenguas = Prize.new(1, 1)
+    bLenguas = BadConsequence.newLevelNumberOfTreasures('Menudo susto te llevas. Pierdes 2 niveles y 5 tesoros visibles', 2, 5, 0)
+    monster << Monster.new('El Lenguas', 20, bLenguas, pLenguas)
+    
+    #Bicéfalo
+    pBicefalo = Prize.new(1, 1)
+    bBicefalo = BadConsequence.newLevelNumberOfTreasures('Te faltan manos para tanta cabeza. Pierdes 3 niveles y tus tesoros visibles de las manos', 3, 5, 0)
+    monster << Monster.new('Bicefalo', 20, bBicefalo, pBicefalo)
+        
     #Esto es una prueba de que funciona
     @tre = Array.new([TreasureKind::ARMOR])
     price = Prize.new(4,1)

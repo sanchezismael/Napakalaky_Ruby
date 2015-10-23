@@ -55,8 +55,13 @@ module Napakalaki
     pHP = Prize.new(2,1)
     bHP = BadConsequence.newLevelSpecificTreasures('Pierdes la armadura visible',
           0, [TreasureKind::ARMOR], nil)
-    monster << Monster.new('H.P. Munchcraft', 6, bHP, pHP)    
+    monster << Monster.new('H.P. Munchcraft', 6, bHP, pHP)  
     
+    #Bichgooth
+    pBichgooth = Prize.new(1,1)
+    bBichgooth = BadConsequence.newLevelSpecificTreasures('Sientes bichos bajo la
+                 ropa. Descartas la armadura visible', 0, [TreasureKind::ARMOR], nil)
+    monster << Monster.new('Bichgooth', 2, bBichgooth, pBichgooth)
     
     #Esto es una prueba de que funciona
     @tre = Array.new([TreasureKind::ARMOR])

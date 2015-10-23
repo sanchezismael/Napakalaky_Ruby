@@ -51,7 +51,11 @@ module Napakalaki
               tesoros visibles', 0, 5, 0)
     monster << Monster.new('El gorrón en el umbral', 10, bGorron, pGorron)
     
-    
+    #H.P. Munchcraft
+    pHP = Prize.new(2,1)
+    bHP = BadConsequence.newLevelSpecificTreasures('Pierdes la armadura visible',
+          0, [TreasureKind::ARMOR], nil)
+    monster << Monster.new('H.P. Munchcraft', 6, bHP, pHP)    
     
     
     #Esto es una prueba de que funciona

@@ -75,6 +75,13 @@ module Napakalaki
               superdiciales y te aburren mortalmente. Estás muerto')
     monster << Monster.new('Los hondos', 8, bHondos, pHondos)
     
+    #Semillas Cthulhu
+    pSemillas = Prize.new(2,1)
+    bSemillas = BadConsequence.newLevelNumberOfTreasures('Pierdes 2 niveles y 2 
+                tesoros ocultos', 2, 0, 2)
+    monster << Monster.new('Semillas Cthulhu', 4, bSemillas, pSemillas)
+    
+    
     
     #Esto es una prueba de que funciona
     @tre = Array.new([TreasureKind::ARMOR])

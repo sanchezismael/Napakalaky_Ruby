@@ -63,6 +63,12 @@ module Napakalaki
                  ropa. Descartas la armadura visible', 0, [TreasureKind::ARMOR], nil)
     monster << Monster.new('Bichgooth', 2, bBichgooth, pBichgooth)
     
+    #La que redacta en las tinieblas
+    pTinieblas = Prize.new(1,1)
+    bTienieblas = BadConsequence.newLevelNumberOfTreasures('Toses los pulmones y
+                  pierdes 2 niveles', 2, 0, 0)
+    monster << Monster.new('La que redacta en las tinieblas', 2, bTinieblas, pTinieblas)
+    
     #Esto es una prueba de que funciona
     @tre = Array.new([TreasureKind::ARMOR])
     price = Prize.new(4,1)

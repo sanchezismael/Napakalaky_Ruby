@@ -31,7 +31,12 @@ module Napakalaki
                 visible y otra oculta',0, [TreasureKind::ARMOR], [TreasureKind::ARMOR])
     monster << Monster.new('3 Byakhees de bonanza', 8, bByakhees, pByakhees)
     
-    #
+    #Chibithulhu
+    pChibithulhu = Prize.new(1,1)
+    bChibithulhu = BadConsequence.newLevelSpecificTreasures('Embobados con el
+                lindo primigenio te descartas de tu casco visible', 0, 
+                [TreasureKind::BOTHHANDS], nil)
+    monster << Monster.new('Chibithulhu',2,bChibithulhu,pChibithulhu)        
     
     
     #Esto es una prueba de que funciona

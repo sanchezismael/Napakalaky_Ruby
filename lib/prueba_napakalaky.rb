@@ -36,7 +36,14 @@ module Napakalaki
     bChibithulhu = BadConsequence.newLevelSpecificTreasures('Embobados con el
                 lindo primigenio te descartas de tu casco visible', 0, 
                 [TreasureKind::BOTHHANDS], nil)
-    monster << Monster.new('Chibithulhu',2,bChibithulhu,pChibithulhu)        
+    monster << Monster.new('Chibithulhu',2,bChibithulhu,pChibithulhu)    
+
+    #El sopor de Dunwich
+    pDunwich = Prize.new(1,1)
+    bDuncwich = BadConsequence.newLevelSpecificTreasures('El primordial bostezo 
+                contagioso. Pierdes el calzado visible', 0, [TreasureKind::SHOES],
+                nil)
+    monster << Monster.new('El sopor de Dunwich', 2, bDunwich, pDunwich)
     
     
     #Esto es una prueba de que funciona

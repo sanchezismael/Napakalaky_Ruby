@@ -69,6 +69,13 @@ module Napakalaki
                   pierdes 2 niveles', 2, 0, 0)
     monster << Monster.new('La que redacta en las tinieblas', 2, bTinieblas, pTinieblas)
     
+    #Los hondos
+    pHondos = Prize.new(2,1)
+    bHondos = BadConsequence.newDeath('Estos monstruos resultan bastante 
+              superdiciales y te aburren mortalmente. Estás muerto')
+    monster << Monster.new('Los hondos', 8, bHondos, pHondos)
+    
+    
     #Esto es una prueba de que funciona
     @tre = Array.new([TreasureKind::ARMOR])
     price = Prize.new(4,1)

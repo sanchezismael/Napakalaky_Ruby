@@ -81,6 +81,12 @@ module Napakalaki
                 tesoros ocultos', 2, 0, 2)
     monster << Monster.new('Semillas Cthulhu', 4, bSemillas, pSemillas)
     
+    #Dameargo
+    pDameargo = Prize.new(2,1)
+    bDameargo = BadConsequence.newLevelSpecificTreasures('Te intentas escaquear.
+                Pierdes una mano visible', 0, [TreasureKind::ONEHAND], nil)
+    monster << Monster.new('DAmeargo', 1, bDameargo, pDameargo)
+    
     
     
     #Esto es una prueba de que funciona

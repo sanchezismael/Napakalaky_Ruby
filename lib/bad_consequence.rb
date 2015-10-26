@@ -2,11 +2,11 @@
 # To change this license header, choose License Headers in Project Properties.
 # To change this template file, choose Tools | Templates
 # and open the template in the editor.
-
+require_relative "treasure_kind.rb"
 class BadConsequence
       attr_accessor :text, :levels, :nVisibleTreasures, 
                   :nHiddenTreasures, :death, :specificHiddenTreasures,
-                  :specidicVisibleTreasures
+                  :specificVisibleTreasures
   
   def initialize(aText, someLevels, someVisibleTreasures, someHiddenTreasures,
     someSpecificVisibleTreasures, someSpecificHiddenTreasures,death)
@@ -15,8 +15,8 @@ class BadConsequence
     @nVisibleTreasures = someVisibleTreasures
     @nHiddenTreasures = someHiddenTreasures
     @death = death
-    @specificHiddenTreasures = someSpecificVisibleTreasures
-    @specidicVisibleTreasures = someSpecificHiddenTreasures
+    @specificHiddenTreasures = someSpecificHiddenTreasures
+    @specificVisibleTreasures = someSpecificVisibleTreasures
   end
   
     def self.newLevelNumberOfTreasures(aText, someLevels, someVisibleTreasures, 
@@ -41,13 +41,15 @@ class BadConsequence
       Tesoros visibles perdidos: #{@nVisibleTreasures}
       Tesoros ocultos perdidos: #{@nHiddenTreasures}
       Muerto: #{@death} 
-      Tesoros especificos visibles: #{@specificHiddenTreasures}
+      Tesoros especificos visibles: #{@specificVisibleTreasures}
       Tesoros especificos ocultos: #{@specificHiddenTreasures}"
     end
     
-    un_bad = BadConsequence.newDeath('Malo')
-    #puts un_bad.to_s
-  
+#    un_bad = BadConsequence.newLevelSpecificTreasures('Pierdes la armadura visible',0, [TreasureKind::ARMOR], [TreasureKind::ARMOR])
+#    puts un_bad.to_s
+#    
+#    puts "Un_Bad: #{un_bad.specificVisibleTreasures}"
+#    puts "Un_Bad: #{un_bad.specificHiddenTreasures}"
   
   private_class_method :new 
 end

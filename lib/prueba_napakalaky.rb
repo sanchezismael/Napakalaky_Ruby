@@ -93,6 +93,11 @@ module Napakalaki
     bRoboggoth = BadConsequence.newLevelSpecificTreasures('La quinte directiva primaria te obliga a perder 2 niveles y un tesoro de 2 manos visible', 2, [TreasureKind::BOTHHANDS], nil)
     monster << Monster.new('Roboggoth', 8, bRoboggoth, pRoboggoth)
     
+    #El Espía
+    pEspia = Prize.new(1, 1)
+    bEspia = BadConsequence.newLevelSpecificTreasures('Te asusta en la noche. Pierdes un casco visible', 0, [TreasureKind::HELMET], nil)
+    monster << Monster.new('El Espia', 5, bEspia, pEspia)
+    
     #El Lenguas
     pLenguas = Prize.new(1, 1)
     bLenguas = BadConsequence.newLevelNumberOfTreasures('Menudo susto te llevas. Pierdes 2 niveles y 5 tesoros visibles', 2, 5, 0)
@@ -100,7 +105,7 @@ module Napakalaki
     
     #Bicéfalo
     pBicefalo = Prize.new(1, 1)
-    bBicefalo = BadConsequence.newLevelNumberOfTreasures('Te faltan manos para tanta cabeza. Pierdes 3 niveles y tus tesoros visibles de las manos', 3, 5, 0)
+    bBicefalo = BadConsequence.newLevelSpecificTreasures('Te faltan manos para tanta cabeza. Pierdes 3 niveles y tus tesoros visibles de las manos', 3,[TreasureKind::BOTHHANDS], nil)
     monster << Monster.new('Bicefalo', 20, bBicefalo, pBicefalo)
         
     #Esto es una prueba de que funciona
@@ -125,7 +130,7 @@ module Napakalaki
           if i.BadConsequence.nHiddenTreasures == 0
             if i.BadConsequence.death == false
               if i.BadConsequence.specificHiddenTreasures == nil
-                if i.BadConsequence.specidicVisibleTreasures == nil
+                if i.BadConsequence.specificVisibleTreasures == nil
                   puts i
                 end
               end
@@ -144,7 +149,7 @@ module Napakalaki
 
     puts "\n\nMostrar todos los monstruos que tengan un mal rollo que suponga la pérdida de un determinado  tipo  de  tesoros  ya  sea   visibles  y/o  ocultos.  Debe  mostrarse   el nombre, nivel de combate, buen rollo y mal rollo de cada monstruo."
     monster.each do |i|
-      if i.BadConsequence.specificHiddenTreasures != nil || i.BadConsequence.specidicVisibleTreasures != nil
+      if i.BadConsequence.specificHiddenTreasures != nil || i.BadConsequence.specificVisibleTreasures != nil
         puts i        
       end
     end
@@ -157,4 +162,14 @@ module Napakalaki
   
 end
 
-
+#
+#Name= 3 Byakhees de bonanza, CombatLevel= 8, Prize= Treasures= 2 levels= 1, BadConsequence= Text= Pierdes tu armadura visible y otra oculta Levels= 0 nHiddenTreasures= 0 nVisibleTreasures= 0 Death= falsespecificVisibleTreasures= [ARMOR] specificsHiddenTreasures= [ARMOR]
+#Name= Chibithulhu, CombatLevel= 2, Prize= Treasures= 1 levels= 1, BadConsequence= Text= Embobados con el lindo primigenio te descartas de tu casco visible Levels= 0 nHiddenTreasures= 0 nVisibleTreasures= 0 Death= falsespecificVisibleTreasures= [HELMET] specificsHiddenTreasures= null
+#Name= El sopor de Dunwich, CombatLevel= 2, Prize= Treasures= 1 levels= 1, BadConsequence= Text= El primordial bostezo contagioso. Pierdes el calzado visible Levels= 0 nHiddenTreasures= 0 nVisibleTreasures= 0 Death= falsespecificVisibleTreasures= [SHOES] specificsHiddenTreasures= null
+#Name= Angeles de la noche ibicenca, CombatLevel= 14, Prize= Treasures= 4 levels= 1, BadConsequence= Text= Te atrapan para llevarte de fiesta y te dejan caer en mitad del vuela. Descarta 1 mano visible y 1 mano oculata Levels= 0 nHiddenTreasures= 0 nVisibleTreasures= 0 Death= falsespecificVisibleTreasures= [ONEHAND] specificsHiddenTreasures= [ONEHAND]
+#Name= El gorrón en el umbral, CombatLevel= 10, Prize= Treasures= 3 levels= 1, BadConsequence= Text= Pierdes todos tus tesoros visibles Levels= 0 nHiddenTreasures= 0 nVisibleTreasures= 0 Death= falsespecificVisibleTreasures= [ARMOR, BOTHHANDS, HELMET, ONEHAND, SHOES] specificsHiddenTreasures= null
+#Name= H.P Munchcraft, CombatLevel= 6, Prize= Treasures= 2 levels= 1, BadConsequence= Text= Pierdes la armadura visible Levels= 0 nHiddenTreasures= 0 nVisibleTreasures= 0 Death= falsespecificVisibleTreasures= [ARMOR] specificsHiddenTreasures= null
+#Name= Bichgooth, CombatLevel= 2, Prize= Treasures= 1 levels= 1, BadConsequence= Text= Sientes bichos bajo la ropa. Descarta la armadura visible Levels= 0 nHiddenTreasures= 0 nVisibleTreasures= 0 Death= falsespecificVisibleTreasures= [ARMOR] specificsHiddenTreasures= null
+#Name= Dameargo, CombatLevel= 1, Prize= Treasures= 2 levels= 1, BadConsequence= Text= Te intentas escaquear. Pierdes una mano visible Levels= 0 nHiddenTreasures= 0 nVisibleTreasures= 0 Death= falsespecificVisibleTreasures= [ONEHAND] specificsHiddenTreasures= null
+#Name= Roboggoth, CombatLevel= 8, Prize= Treasures= 2 levels= 1, BadConsequence= Text= La quinta directiva primaria te obliga a perder 2 niveles y un tesoro de 2 manos visible Levels= 0 nHiddenTreasures= 0 nVisibleTreasures= 0 Death= falsespecificVisibleTreasures= [BOTHHANDS] specificsHiddenTreasures= null
+#Name= El espía

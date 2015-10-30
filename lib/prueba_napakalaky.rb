@@ -116,12 +116,23 @@ module Napakalaki
 #    
 #    puts monstruo.to_s
     
+    
+    #############################################################
+    #
+    # BATERÍA DE PRUEBAS
+    #
+    #############################################################
+    
+    # Mostrar los monstruos que tienen un nivel de combate superior a 10
+    
     puts "Mostrar todos los monstruos  que tengan un nivel de combate superior a 10."
     monster.each do |i|
       if i.combatLevel > 10
         puts i
       end
     end
+    
+    # Mostrar los monstruos que tengan un mal rollo que implique sólo pérdida de niveles
     
     puts "\n\nMostrar todos los monstruos que tengan un mal rollo que implique sólo pérdida de niveles"
     monster.each do |i|
@@ -140,12 +151,17 @@ module Napakalaki
       end
     end
     
+    # Mostrar los monstruos cuyo buen rollo indique una ganancia de niveles superior a 1
+    
     puts "\n\nMostrar todos los monstruos que tengan un buen rollo que indique una ganancia de niveles superior a 1."
     monster.each do |i|
       if i.Prize.level > 1
         puts i
       end
     end
+    
+    # Mostrar los monstruos cuyo mal rollo suponga la pérdidas de un determinado tipo de tesoros, ya sea
+    # visibles y/u ocultos
 
     puts "\n\nMostrar todos los monstruos que tengan un mal rollo que suponga la pérdida de un determinado  tipo  de  tesoros  ya  sea   visibles  y/o  ocultos.  Debe  mostrarse   el nombre, nivel de combate, buen rollo y mal rollo de cada monstruo."
     monster.each do |i|
@@ -154,22 +170,44 @@ module Napakalaki
       end
     end
     
+    #####################################################
+    puts "\nEJ EXAMEN - Monstruo con mayor nivel"
+    
+    
+   maxlevel = monster[0]
+   pos = 0
+   tamanio = monster.size
+   
 
+    for i in(0..tamanio-1)
+      if monster[i].combatLevel >= maxlevel.combatLevel
+        maxlevel = monster[i]
+        pos = i
+      end 
+    end
+    
+    puts "\nPosición: #{pos}"
+    puts maxlevel
+    
+    ###################################
+    m = monster[0]
+    maximo = 0
+    pos = 0
+    n = 0
+    monster.each do |i|
+      if(i.combatLevel > maximo)
+        maximo = i.combatLevel
+        m = i
+        pos = n
+      end
+      n = n+1
+    end
+    puts "El monstruo con maximo nivel que esta en la posicion: #{pos} es: #{m}"
+    ##################################
+    
+    end
+    
+    
+    
   end
     
-    
-    
-  
-end
-
-#
-#Name= 3 Byakhees de bonanza, CombatLevel= 8, Prize= Treasures= 2 levels= 1, BadConsequence= Text= Pierdes tu armadura visible y otra oculta Levels= 0 nHiddenTreasures= 0 nVisibleTreasures= 0 Death= falsespecificVisibleTreasures= [ARMOR] specificsHiddenTreasures= [ARMOR]
-#Name= Chibithulhu, CombatLevel= 2, Prize= Treasures= 1 levels= 1, BadConsequence= Text= Embobados con el lindo primigenio te descartas de tu casco visible Levels= 0 nHiddenTreasures= 0 nVisibleTreasures= 0 Death= falsespecificVisibleTreasures= [HELMET] specificsHiddenTreasures= null
-#Name= El sopor de Dunwich, CombatLevel= 2, Prize= Treasures= 1 levels= 1, BadConsequence= Text= El primordial bostezo contagioso. Pierdes el calzado visible Levels= 0 nHiddenTreasures= 0 nVisibleTreasures= 0 Death= falsespecificVisibleTreasures= [SHOES] specificsHiddenTreasures= null
-#Name= Angeles de la noche ibicenca, CombatLevel= 14, Prize= Treasures= 4 levels= 1, BadConsequence= Text= Te atrapan para llevarte de fiesta y te dejan caer en mitad del vuela. Descarta 1 mano visible y 1 mano oculata Levels= 0 nHiddenTreasures= 0 nVisibleTreasures= 0 Death= falsespecificVisibleTreasures= [ONEHAND] specificsHiddenTreasures= [ONEHAND]
-#Name= El gorrón en el umbral, CombatLevel= 10, Prize= Treasures= 3 levels= 1, BadConsequence= Text= Pierdes todos tus tesoros visibles Levels= 0 nHiddenTreasures= 0 nVisibleTreasures= 0 Death= falsespecificVisibleTreasures= [ARMOR, BOTHHANDS, HELMET, ONEHAND, SHOES] specificsHiddenTreasures= null
-#Name= H.P Munchcraft, CombatLevel= 6, Prize= Treasures= 2 levels= 1, BadConsequence= Text= Pierdes la armadura visible Levels= 0 nHiddenTreasures= 0 nVisibleTreasures= 0 Death= falsespecificVisibleTreasures= [ARMOR] specificsHiddenTreasures= null
-#Name= Bichgooth, CombatLevel= 2, Prize= Treasures= 1 levels= 1, BadConsequence= Text= Sientes bichos bajo la ropa. Descarta la armadura visible Levels= 0 nHiddenTreasures= 0 nVisibleTreasures= 0 Death= falsespecificVisibleTreasures= [ARMOR] specificsHiddenTreasures= null
-#Name= Dameargo, CombatLevel= 1, Prize= Treasures= 2 levels= 1, BadConsequence= Text= Te intentas escaquear. Pierdes una mano visible Levels= 0 nHiddenTreasures= 0 nVisibleTreasures= 0 Death= falsespecificVisibleTreasures= [ONEHAND] specificsHiddenTreasures= null
-#Name= Roboggoth, CombatLevel= 8, Prize= Treasures= 2 levels= 1, BadConsequence= Text= La quinta directiva primaria te obliga a perder 2 niveles y un tesoro de 2 manos visible Levels= 0 nHiddenTreasures= 0 nVisibleTreasures= 0 Death= falsespecificVisibleTreasures= [BOTHHANDS] specificsHiddenTreasures= null
-#Name= El espía

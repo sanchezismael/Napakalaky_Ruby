@@ -12,14 +12,6 @@ module Napakalaki
     end
     attr_reader :treasures, :level
     
-    def getTreasures()
-      @treasures
-    end
-    
-    def getLevels
-      @level
-    end
-    
     def to_s
       "Tesoros ganados: #{@treasures} / Niveles ganados: #{@level}"
     end

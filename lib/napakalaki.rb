@@ -7,8 +7,11 @@ class Napakalaki
 
   attr_reader :Napakalaki.instance, :CurrentPlayer, :CurrentMonster
   attr_writer :Enemies
-  def initialize
-    
+  def initialize()
+    @currentPlayer
+    @players
+    @dealer
+    @currentMonster
   end
   
   private

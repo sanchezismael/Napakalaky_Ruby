@@ -8,6 +8,8 @@ class BadConsequence
                   :nHiddenTreasures, :death, :specificHiddenTreasures,
                   :specificVisibleTreasures
   
+  MAXTREASURES = 10
+  
   def initialize(aText, someLevels, someVisibleTreasures, someHiddenTreasures,
     someSpecificVisibleTreasures, someSpecificHiddenTreasures,death)
     @text = aText
@@ -33,6 +35,42 @@ class BadConsequence
     
     def self.newDeath(aText)
       new(aText,0,0,0,nil,nil,true)
+    end
+    
+    def isEmpty()
+      
+    end
+    
+    def getLevels()
+      
+    end
+    
+    def getNVisibleTreasures()
+      
+    end
+    
+    def getNHiddenTreasures()
+      
+    end
+    
+    def getSpecificHiddenTreasures()
+      
+    end
+    
+    def getSpecificVisibleTreasures()
+      
+    end
+    
+    def substractVisibleTreasure(t)
+      
+    end
+    
+    def substractHiddenTreasure(t)
+      
+    end
+    
+    def adjustToFitTreasureLists(v,h)
+      
     end
     
     def to_s

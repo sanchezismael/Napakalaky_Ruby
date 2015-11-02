@@ -11,10 +11,30 @@ class Monster
     @BadConsequence = bc
   end
     
-    attr_accessor :name, :combatLevel, :Prize, :BadConsequence
+  attr_accessor :name, :combatLevel, :Prize, :BadConsequence
     
-    def to_s
-      "\nNombre: #{@name} \n Nivel de combate: #{@combatLevel} \n Buen rollo: #{@Prize.to_s} \n #{@BadConsequence.to_s}"
-    end
+  def to_s
+    "\nNombre: #{@name} \n Nivel de combate: #{@combatLevel} \n Buen rollo: #{@Prize.to_s} \n #{@BadConsequence.to_s}"
+  end
+  
+  def getName()
+    @name
+  end
+  
+  def getCombatLevel()
+    @combatLevel
+  end
+  
+  def BadConsequence()
+    @BadConsequence
+  end
+  
+  def LevelsGained()
+    
+  end
+  
+  def TreasuresGained()
+    
+  end
   
 end

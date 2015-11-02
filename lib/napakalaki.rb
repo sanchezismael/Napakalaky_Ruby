@@ -4,7 +4,7 @@
 
 class Napakalaki
   include singleton
-
+  
   attr_reader :Napakalaki.instance, :CurrentPlayer, :CurrentMonster
   attr_writer :Enemies
   def initialize()

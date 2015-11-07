@@ -8,11 +8,20 @@ class Monster
     @name = name
     @combatLevel = level
     @Prize = price
-    @BadConsequence = bc
+    @badConsequence = bc
   end
     
-  attr_reader :name, :combatLevel, :Prize, :BadConsequence, :LevelsGained, :TreasuresGained
+  attr_reader :name, :combatLevel, :badConsequence
+  
+  def getLevelsGained()
     
+  end
+  
+  def getTreasuresGained
+    
+  end
+  
+  
   def to_s
     "\nNombre: #{@name} \n Nivel de combate: #{@combatLevel} \n Buen rollo: #{@Prize.to_s} \n #{@BadConsequence.to_s}"
   end

@@ -5,7 +5,6 @@
 class CardDealer
   
   include singleton
-  attr_reader :Napakalaki.instance
   
   def initialize
     @unusedTreasures

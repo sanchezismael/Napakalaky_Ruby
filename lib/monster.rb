@@ -7,18 +7,18 @@ class Monster
   def initialize(name,level,bc,price)
     @name = name
     @combatLevel = level
-    @Prize = price
+    @prize = price
     @badConsequence = bc
   end
     
   attr_reader :name, :combatLevel, :badConsequence
   
   def getLevelsGained()
-    
+    @prize.levels
   end
   
   def getTreasuresGained
-    
+    @badConsequece.levels
   end
   
   

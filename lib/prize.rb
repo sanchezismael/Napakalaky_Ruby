@@ -8,12 +8,12 @@ module Napakalaki
   class Prize
     def initialize(un_treasures,un_level)
       @treasures= un_treasures
-      @level = un_level
+      @levels = un_level
     end
-    attr_reader :treasures, :level
+    attr_reader :treasures, :levels
     
     def to_s
-      "Tesoros ganados: #{@treasures} / Niveles ganados: #{@level}"
+      "Tesoros ganados: #{@treasures} / Niveles ganados: #{@levels}"
     end
   end
 

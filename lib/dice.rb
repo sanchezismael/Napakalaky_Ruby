@@ -10,6 +10,7 @@ class Dice
   end
   
   def nextNumber()
-    
+    r = Random.new(p1)
+    r.rand(1..6)
   end
 end

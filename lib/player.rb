@@ -4,7 +4,7 @@
 
 class Player
   
-  MAXLEVEL = 10
+  @@MAXLEVEL = 10
  
   def initialize(name)
     @name = name
@@ -17,8 +17,27 @@ class Player
     @pendingBadConsequence = nil   
   end
   
-  attr_reader :name, :level
-
+  attr_reader :name, :level, :hiddenTreasures, :visibleTreasures, :dead, :canISteal
+  attr_write :pendingBadConsequence, :enemy
+  
+  
+  private
+  
+  def giveMeATreasure()
+    
+  end
+  
+  def canYouGiveMeATreasure()   #Los tesoros que se roban son tesoros ocultos
+    if(@hiddenTreasures.empty?) #por tanto, compruebo que tiene tesoros ocultos
+      false
+    else
+      true
+    end
+  end
+  
+  def haveStolen()
+    @canSteal = false
+  end
   
   def bringToLife()
     @dead = false;
@@ -44,10 +63,6 @@ class Player
     if(@level < 1)
       @level = 1
     end
-  end
-  
-  def setPendingBadConsequence(b)
-    @pendingBadConsequence = b
   end
   
   def applyPrize(m)
@@ -78,17 +93,10 @@ class Player
     end
   end
   
-  def isDead()
-    @dead
-  end
-  
-  def getHiddenTreasures()
-    
-  end
-  
-  def getVisibleTreasures()
-    
-  end
+  public
+#  def isDead()
+#    @dead
+#  end
   
   def combat(m)
     
@@ -118,44 +126,23 @@ class Player
     
   end
   
-  def getLevels()
-    @level
-  end
-  
   def stealTreasure()
     
   end
   
-  def setEnemy(enemy)
-    @enemy = enemy
-  end
+
   
-  def giveMeATreasure()
-    
-  end
+#  def canISteal()
+#    @canSteal
+#  end
   
-  def canISteal()
-    @canSteal
-  end
   
-  def canYouGiveMeATreasure()   #Los tesoros que se roban son tesoros ocultos
-    if(@hiddenTreasures.empty?) #por tanto, compruebo que tiene tesoros ocultos
-      false
-    else
-      true
-    end
-  end
   
-  def haveStolen()
-    @canSteal = false
-  end
+  
   
   def discardAllTreasures()
     
   end
-  
-  private :getCombatLevel, :incrementLevels, :decrementLevels, :setPendingBadConsequence, :applyPrize, :applyBadConsequence,
-          :canMakeTreasureVisible, :howManyVisibleTreasures, :dielfNoTreasures, :giveMeATreasure, :canYouGiveMeATreasure, :haveStolen
   
   
 end

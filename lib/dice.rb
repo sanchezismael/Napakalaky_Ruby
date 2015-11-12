@@ -5,8 +5,7 @@
 class Dice
   include singleton
   
-  def initialize
-    
+  def initialize  
   end
   
   def nextNumber()

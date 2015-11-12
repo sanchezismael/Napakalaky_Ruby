@@ -1,17 +1,17 @@
 # To change this license header, choose License Headers in Project Properties.
 # To change this template file, choose Tools | Templates
 # and open the template in the editor.
-
+require 'singleton'
 class Napakalaki
-  include singleton
+  include Singleton
   
   attr_reader :currentPlayer, :currentMonster
   attr_writer :enemies
   def initialize()
-    @currentPlayer
-    @players
-    @dealer
-    @currentMonster
+    @currentPlayer = nil
+    @players = nil
+    @dealer = nil
+    @currentMonster = nil
   end
   
   private
@@ -26,6 +26,8 @@ class Napakalaki
   def nextTurnAllowed()
     
   end
+  
+  public
   
   def developCombat()
     
@@ -47,7 +49,7 @@ class Napakalaki
     
   end
   
-  def nectTurn()
+  def nextTurn()
     
   end
   

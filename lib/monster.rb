@@ -4,14 +4,13 @@
 # and open the template in the editor.
 
 class Monster
-  def initialize(name,level,bc,price)
+    attr_reader :name, :combatLevel, :badConsequence
+  def initialize(name,level,bc,prize)
     @name = name
     @combatLevel = level
-    @prize = price
+    @prize = prize
     @badConsequence = bc
   end
-    
-  attr_reader :name, :combatLevel, :badConsequence
   
   def getLevelsGained()
     @prize.levels

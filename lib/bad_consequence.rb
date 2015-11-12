@@ -4,11 +4,11 @@
 # and open the template in the editor.
 require_relative "treasure_kind.rb"
 class BadConsequence
-      attr_accessor :text, :levels, :nVisibleTreasures, 
+      attr_reader :text, :levels, :nVisibleTreasures, 
                   :nHiddenTreasures, :death, :specificHiddenTreasures,
                   :specificVisibleTreasures
   
-  MAXTREASURES = 10
+  @@MAXTREASURES = 10
   
   def initialize(aText, someLevels, someVisibleTreasures, someHiddenTreasures,
     someSpecificVisibleTreasures, someSpecificHiddenTreasures,death)
@@ -33,8 +33,8 @@ class BadConsequence
       false)
     end
     
-    def self.newDeath(aText)
-      new(aText,0,0,0,nil,nil,true)
+    def self.newDeath(aText, death)
+      new(aText,0,0,0,nil,nil,death)
     end
     
     def isEmpty()
@@ -43,26 +43,6 @@ class BadConsequence
           true
         end
       end
-    end
-    
-    def getLevels()
-      
-    end
-    
-    def getNVisibleTreasures()
-      
-    end
-    
-    def getNHiddenTreasures()
-      
-    end
-    
-    def getSpecificHiddenTreasures()
-      
-    end
-    
-    def getSpecificVisibleTreasures()
-      
     end
     
     def substractVisibleTreasure(t)

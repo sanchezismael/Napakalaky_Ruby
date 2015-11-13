@@ -9,6 +9,7 @@ module Napakalaki
   require_relative "bad_consequence.rb"
   require_relative "monster.rb"
   require_relative "treasure_kind.rb"
+  require_relative "dice.rb"
   class PruebaNapakalaki
     
    monster = Array.new 
@@ -204,7 +205,8 @@ module Napakalaki
     end
     puts "El monstruo con maximo nivel que esta en la posicion: #{pos} es: #{m}"
     ##################################
-    
+    dc = Dice.getInstance
+    puts dc.nextNumber
     end
     
     

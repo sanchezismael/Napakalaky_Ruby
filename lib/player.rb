@@ -110,6 +110,7 @@ class Player
     end
     
     return puedo
+    end
   end
   
   def howManyVisibleTreasures(tkind)

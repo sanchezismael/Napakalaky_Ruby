@@ -6,24 +6,43 @@ class Napakalaki
   include Singleton
   
   attr_reader :currentPlayer, :currentMonster
-  attr_writer :enemies
+
   def initialize()
     @currentPlayer = nil
-    @players = nil
+    @players = Array.new
     @dealer = nil
     @currentMonster = nil
   end
   
   private
   def initPlayer(names)
-    
+    names.each { |i| players << Player.new(i) }
   end
   
   def nextPlayer()
-    
+    if @currentPlayer == nil
+      jugador = rand(@players.size)
+    else
+      if @players.size == @players.index(@currentPlayer)
+        jugador = 0
+      else
+        jugador = @players.index(@currentPlayer) + 1
+      end
+    end
+    return jugador
   end
   
   def nextTurnAllowed()
+    if @currentPlayer == nil
+      permitido = true
+    else
+      permitido = @currentPlayer.validState()
+    end
+    
+    return permitido
+  end
+  
+  def setEnemies()
     
   end
   
@@ -54,7 +73,7 @@ class Napakalaki
   end
   
   def endOfGame(result)
-    
+    result == (CombatResult::WINGAME)
   end
   
 end

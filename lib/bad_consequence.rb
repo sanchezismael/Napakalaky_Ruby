@@ -47,10 +47,20 @@ class BadConsequence
     
     def substractVisibleTreasure(t)
       
+#      Misma duda que en JAVA
+
+      if @specificVisibleTreasures.include?(t.type)
+        @specificVisibleTreasures.delete(t.type)
+      end
     end
     
     def substractHiddenTreasure(t)
       
+#      Misma duda que en JAVA
+
+      if @specificHiddenTreasures.include?(t.type)
+        @specificHiddenTreasures.delete(t.type)
+      end
     end
     
     def adjustToFitTreasureLists(v,h)

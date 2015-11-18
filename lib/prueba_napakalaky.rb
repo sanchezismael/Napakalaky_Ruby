@@ -61,7 +61,7 @@ module Napakalaki
     
     #Los hondos
     pHondos = Prize.new(2,1)
-    bHondos = BadConsequence.newDeath('Estos monstruos resultan bastante superdiciales y te aburren mortalmente. Estás muerto')
+    bHondos = BadConsequence.newDeath('Estos monstruos resultan bastante superdiciales y te aburren mortalmente. Estás muerto',true)
     monster << Monster.new('Los hondos', 8, bHondos, pHondos)
     
     #Semillas Cthulhu
@@ -81,12 +81,12 @@ module Napakalaki
     
     #Yskhtihyssg-Goth
     pYskhtihyssg = Prize.new(3,1)
-    bYskhtihyssg = BadConsequence.newDeath('No le hace gracia que pronuncien mal su nombre. Estas muerto')
+    bYskhtihyssg = BadConsequence.newDeath('No le hace gracia que pronuncien mal su nombre. Estas muerto',true)
     monster << Monster.new('Yskhtihyssg-Goth', 12, bYskhtihyssg, pYskhtihyssg)
     
     #Familia Feliz
     pFamiliaFeliz = Prize.new(4,1)
-    bFamiliaFeliz = BadConsequence.newDeath('La familia te atrapa. Estas muerto.')
+    bFamiliaFeliz = BadConsequence.newDeath('La familia te atrapa. Estas muerto.',true)
     monster << Monster.new('Familia Feliz', 1, bFamiliaFeliz, pFamiliaFeliz)
     
     #Roboggoth
@@ -137,12 +137,12 @@ module Napakalaki
     
     puts "\n\nMostrar todos los monstruos que tengan un mal rollo que implique sólo pérdida de niveles"
     monster.each do |i|
-      if i.BadConsequence.levels > 0
-        if i.BadConsequence.nVisibleTreasures == 0
-          if i.BadConsequence.nHiddenTreasures == 0
-            if i.BadConsequence.death == false
-              if i.BadConsequence.specificHiddenTreasures == nil
-                if i.BadConsequence.specificVisibleTreasures == nil
+      if i.badConsequence.levels > 0
+        if i.badConsequence.nVisibleTreasures == 0
+          if i.badConsequence.nHiddenTreasures == 0
+            if i.badConsequence.death == false
+              if i.badConsequence.specificHiddenTreasures == nil
+                if i.badConsequence.specificVisibleTreasures == nil
                   puts i
                 end
               end
@@ -154,19 +154,14 @@ module Napakalaki
     
     # Mostrar los monstruos cuyo buen rollo indique una ganancia de niveles superior a 1
     
-    puts "\n\nMostrar todos los monstruos que tengan un buen rollo que indique una ganancia de niveles superior a 1."
-    monster.each do |i|
-      if i.Prize.level > 1
-        puts i
-      end
-    end
+
     
     # Mostrar los monstruos cuyo mal rollo suponga la pérdidas de un determinado tipo de tesoros, ya sea
     # visibles y/u ocultos
 
     puts "\n\nMostrar todos los monstruos que tengan un mal rollo que suponga la pérdida de un determinado  tipo  de  tesoros  ya  sea   visibles  y/o  ocultos.  Debe  mostrarse   el nombre, nivel de combate, buen rollo y mal rollo de cada monstruo."
     monster.each do |i|
-      if i.BadConsequence.specificHiddenTreasures != nil || i.BadConsequence.specificVisibleTreasures != nil
+      if i.badConsequence.specificHiddenTreasures != nil || i.badConsequence.specificVisibleTreasures != nil
         puts i        
       end
     end

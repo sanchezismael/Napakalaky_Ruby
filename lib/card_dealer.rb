@@ -16,7 +16,7 @@ module Napakalaki
       @unusedMonsters = Array.new
     end
 
-    def initTreasureCardDeck()
+    def initTreasureCardDeck
       @unusedTreasures << Treasure.new("¡Sí mi amo!", 4, [TreasureKind::HELMET])
       @unusedTreasures << Treasure.new("Botas de investigación", 3, [TreasureKind::SHOES])
       @unusedTreasures << Treasure.new("Capucha de Cthulhu", 3, [TreasureKind::HELMET])
@@ -50,7 +50,7 @@ module Napakalaki
       @unusedTreasures << Treasure.new("Zapato deja-amigos",1 , [TreasureKind::SHOES])
     end
 
-    def initMonsterCardDeck()
+    def initMonsterCardDeck
 
       #3 Byakhees de bonanza
       pByakhees = Prize.new(2,1)
@@ -150,22 +150,46 @@ module Napakalaki
 
     end
 
-    def shuffleTreasures()
+    def shuffleTreasures
       @unusedTreasures.shuffle
     end
 
-    def ShuffleMonsters()
+    def shuffleMonsters
       @unusedMonsters.shuffle
     end
 
     public
 
-    def nextTreasure()
-
+    def nextTreasure
+      if @unusedTreasures.size == 0
+        @usedTreasures.each do |i|
+          @unusedTreasures << i
+        end
+        shuffleTreasures
+        @usedTreasures.clear
+      end
+      
+      tesoro = @unusedTreasures.at(0)
+      @usedTreasures << tesoro
+      @unusedTreasures.delete(tesoro)
+      
+      return tesoro
     end
 
-    def nextMonster()
-
+    def nextMonster
+      if @unusedMonsters.size == 0
+        @usedMonsters.each do |i|
+          @unusedMonsters << i
+        end
+        shuffleMonsters
+        @usedMonsters.clear
+      end
+      
+      monstruo = @unusedMonsters.at(0)
+      @usedMonsters << monstruo
+      @unusedTreasures.delete(monstruo)
+      
+      return monstruo
     end
 
     def giveTreasureBack(t)
@@ -176,7 +200,7 @@ module Napakalaki
       @usedMonsters << m
     end
 
-    def initCards()
+    def initCards
 
     end
 

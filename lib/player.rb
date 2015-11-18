@@ -24,7 +24,9 @@ class Player
   private
   
   def giveMeATreasure()
-    
+#    return @hiddenTreasures.sample Ruby 2.0 -> Estamos usando 1.7.3
+    i = rand(@hiddenTreasures.size)
+    return @hiddenTreasures.at(i)
   end
   
   def canYouGiveMeATreasure()   #Los tesoros que se roban son tesoros ocultos
@@ -74,7 +76,40 @@ class Player
   end
   
   def canMakeTreasureVisible(t)
+    puedo = false
     
+    unamano = 0
+    dosmanos = 0
+    armadura = 0
+    casco = 0
+    zapatos = 0
+    
+    @visibleTreasures.each do |i|
+      if i.type == TreasureKind::ONEHAND
+        unamano += 1
+      elsif i.type == TreasureKind::BOTHHANDS
+        dosmanos += 1
+      elsif i.type == TreasureKind::ARMOR
+        armadura += 1
+      elsif i.type == TreasureKind::HELMET
+        casco += 1
+      elsif i.type == TreasureKind::SHOES
+        zapatos += 1
+      end
+    
+    if (t.type == TreasureKind::ONEHAND && unamano < 2 && dosmanos == 0)
+      puedo = true
+    elsif (t.type == TreasureKind::BOTHHANDS && unamano == 0 && dosmanos == 0)
+      puedo = true
+    elsif (t.type == TreasureKind::ARMOR && armadura == 0)
+      puedo = true
+    elsif (t.type == TreasureKind::HELMET && casco == 0)
+      puedo = true
+    elsif (t.type == TreasureKind::SHOES && zapatos == 0)
+      puedo = true
+    end
+    
+    return puedo
   end
   
   def howManyVisibleTreasures(tkind)

@@ -2,6 +2,9 @@
 # To change this template file, choose Tools | Templates
 # and open the template in the editor.
 require 'singleton'
+require 'card_dealer.rb'
+require 'player.rb'
+
 class Napakalaki
   include Singleton
   
@@ -10,7 +13,7 @@ class Napakalaki
   def initialize()
     @currentPlayer = nil
     @players = Array.new
-    @dealer = nil
+    @dealer = CardDealer.instance
     @currentMonster = nil
   end
   
@@ -42,13 +45,24 @@ class Napakalaki
     return permitido
   end
   
+  #PREGUNTAR SI ESTO ES ASÍ
+  
   def setEnemies()
+    index = rand(@players.size)
+    i = 0
     
+    while i<@players.size
+      while index == i
+        index = rand(@players.size)
+      end
+      @players.at(i).enemy = @player.at(index)
+      i+=1
+    end
   end
   
   public
   
-  def developCombat()
+  def developCombat
     
   end
   
@@ -65,10 +79,13 @@ class Napakalaki
   end
   
   def initGame(players)
-    
+    initPlayers(players)
+    setEnemies
+    nextTurn
+    @dealer.initCards
   end
   
-  def nextTurn()
+  def nextTurn
     
   end
   

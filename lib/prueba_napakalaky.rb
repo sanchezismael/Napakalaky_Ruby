@@ -10,6 +10,9 @@ module Napakalaki
   require_relative "monster.rb"
   require_relative "treasure_kind.rb"
   require_relative "dice.rb"
+  require_relative "player.rb"
+
+  
   class PruebaNapakalaki
     
    monster = Array.new 
@@ -204,7 +207,10 @@ module Napakalaki
     puts dc.nextNumber
     end
     
-    
+  jugador = Player.new('Pepe')
+  puts jugador.name
+  puts jugador.enemy
+  
     
   end
     

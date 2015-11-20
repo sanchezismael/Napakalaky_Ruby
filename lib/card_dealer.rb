@@ -201,7 +201,8 @@ module Napakalaki
     end
 
     def initCards
-
+      initTreasureCardDeck
+      initMonsterCardDeck
     end
 
   end

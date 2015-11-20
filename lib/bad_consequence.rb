@@ -3,6 +3,7 @@
 # To change this template file, choose Tools | Templates
 # and open the template in the editor.
 require_relative "treasure_kind.rb"
+module Napakalaki
 class BadConsequence
       attr_reader :text, :levels, :nVisibleTreasures, 
                   :nHiddenTreasures, :death, :specificHiddenTreasures,
@@ -51,6 +52,9 @@ class BadConsequence
 
       if @specificVisibleTreasures.include?(t.type)
         @specificVisibleTreasures.delete(t.type)
+      elsif nVisibleTreasures > 0
+        @nVisibleTreasures -= 1
+      end
       end
     end
     
@@ -60,6 +64,8 @@ class BadConsequence
 
       if @specificHiddenTreasures.include?(t.type)
         @specificHiddenTreasures.delete(t.type)
+      elsif nHiddenTreasures > 0
+          @nHiddenTreasures -= 1
       end
     end
     
@@ -75,6 +81,8 @@ class BadConsequence
       Muerto: #{@death} 
       Tesoros especificos visibles: #{@specificVisibleTreasures}
       Tesoros especificos ocultos: #{@specificHiddenTreasures}"
+      
+      private_class_method :new 
     end
     
 #    un_bad = BadConsequence.newLevelSpecificTreasures('Pierdes la armadura visible',0, [TreasureKind::ARMOR], [TreasureKind::ARMOR])
@@ -83,5 +91,4 @@ class BadConsequence
 #    puts "Un_Bad: #{un_bad.specificVisibleTreasures}"
 #    puts "Un_Bad: #{un_bad.specificHiddenTreasures}"
   
-  private_class_method :new 
 end

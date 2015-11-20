@@ -24,7 +24,7 @@ class Player
   private
   
   def giveMeATreasure()
-#    return @hiddenTreasures.sample Ruby 2.0 -> Estamos usando 1.7.3
+    #    return @hiddenTreasures.sample Ruby 2.0 -> Estamos usando 1.7.3
     i = rand(@hiddenTreasures.size)
     return @hiddenTreasures.at(i)
   end
@@ -97,25 +97,25 @@ class Player
         zapatos += 1
       end
     
-    if (t.type == TreasureKind::ONEHAND && unamano < 2 && dosmanos == 0)
-      puedo = true
-    elsif (t.type == TreasureKind::BOTHHANDS && unamano == 0 && dosmanos == 0)
-      puedo = true
-    elsif (t.type == TreasureKind::ARMOR && armadura == 0)
-      puedo = true
-    elsif (t.type == TreasureKind::HELMET && casco == 0)
-      puedo = true
-    elsif (t.type == TreasureKind::SHOES && zapatos == 0)
-      puedo = true
-    end
+      if (t.type == TreasureKind::ONEHAND && unamano < 2 && dosmanos == 0)
+        puedo = true
+      elsif (t.type == TreasureKind::BOTHHANDS && unamano == 0 && dosmanos == 0)
+        puedo = true
+      elsif (t.type == TreasureKind::ARMOR && armadura == 0)
+        puedo = true
+      elsif (t.type == TreasureKind::HELMET && casco == 0)
+        puedo = true
+      elsif (t.type == TreasureKind::SHOES && zapatos == 0)
+        puedo = true
+      end
     
-    return puedo
+      return puedo
     end
   end
   
   def howManyVisibleTreasures(tkind)
     @visibleTreasures.each do |i|
-    n = 0
+      n = 0
       if(tkind == i)
         n += 1
       end
@@ -130,20 +130,38 @@ class Player
   end
   
   public
-#  def isDead()
-#    @dead
-#  end
-  
+
   def combat(m)
-    
+    myLevel = getCombatLevel
+    monsterLevel = m.getCombatLevel
+    if(myLevel > monsterLevel)
+      applyPrize(m)
+      if(this.level >= MAXLEVEL)
+        combatResult = [CombatResult::WINGAME]
+      else
+        combatResult = [CombatResult::WIN]
+      end
+    else
+      applyBadConsequence(m)
+      combatResult = [CombatResult::LOSE]
+    end
+    return combatResult
   end
   
   def makeTreasureVisible(t)
-    
+    canI = canMakeTreasureVisible(t)
+    if(canI)
+      @visibleTreasures << t
+      @hiddenTreasure.remove(t)
+    end
   end
   
   def discardVisibleTreasure(t)
-    
+    @visibleTreasures.remove_instance_variable(t)
+    if(@pendingBadConsequence != nil && (!pendingBadConsequence.isEmpty))
+      @pendingBadConsequence.substractVisibleTreasure(t)
+    end
+    dielfNoTreasures
   end
   
   def discardHiddenTreasure(t)
@@ -168,9 +186,9 @@ class Player
   
 
   
-#  def canISteal()
-#    @canSteal
-#  end
+  #  def canISteal()
+  #    @canSteal
+  #  end
   
   
   

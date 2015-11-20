@@ -45,8 +45,6 @@ class Napakalaki
     return permitido
   end
   
-  #PREGUNTAR SI ESTO ES ASÍ
-  
   def setEnemies()
     index = rand(@players.size)
     i = 0
@@ -63,30 +61,50 @@ class Napakalaki
   public
   
   def developCombat
+    combatResult = @currentplayer.combat(@currentMonster)
+    @dealer.giveMonsterBack(@currentMonster)
+    return combatResult
     
   end
   
   def discardVisibleTreasures(treasures)
-    
+    treasures.each do |visibleTreasure|
+      @currentPlayer.discardVisibleTreasure(visibleTreasure)
+      @dealer.giveTreasureBack(visibleTreasure)
+    end
   end
   
   def discardHiddenTreasures(treasures)
-    
+    treasures.each do |hiddenTreasure|
+      @currentPlayer.discardHiddenTreasure(hiddenTreasure)
+      @dealer.giveTreasureBack(hiddenTreasure)
+    end
   end
   
   def makeTreasuresVisible(treasures)
-    
+    tresures.each do |treasure|
+      @currentPlayer.makeTreasureVisible(treasure)
+    end
   end
   
   def initGame(players)
     initPlayers(players)
     setEnemies
-    nextTurn
     @dealer.initCards
+    nextTurn
   end
   
   def nextTurn
-    
+    stateOK = nextTurnAllowed
+    if(stateOK)
+      @currentMonster = @dealer.nextMonster
+      @currentPlayer = nextPlayer
+      dead = @currentPlayer.dead
+      if(dead)
+        @currentPlayer.initTreasure
+      end
+    end
+    return stateOK
   end
   
   def endOfGame(result)

@@ -11,6 +11,7 @@ module Napakalaki
   require_relative "treasure_kind.rb"
   require_relative "dice.rb"
   require_relative "player.rb"
+  require_relative "card_dealer.rb"
 
   
   class PruebaNapakalaki
@@ -209,8 +210,9 @@ module Napakalaki
     
   jugador = Player.new('Pepe')
   puts jugador.name
-  puts jugador.enemy
+  #puts jugador.enemy
   
+  puts CardDealer.instance
     
   end
     

@@ -8,9 +8,9 @@ class Dice
   def initialize  
   end
   
-  def self.getInstance()
-    Dice.instance
-  end
+#  def self.getInstance()
+#    Dice.instance
+#  end
   
   def nextNumber()
     r = Random.new

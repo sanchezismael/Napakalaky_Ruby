@@ -37,11 +37,11 @@ class Player
     end
   end
   
-  def haveStolen()
+  def haveStolen
     @canSteal = false
   end
   
-  def bringToLife()
+  def bringToLife
     @dead = false;
   end
   
@@ -68,11 +68,26 @@ class Player
   end
   
   def applyPrize(m)
+    nLevels = m.getLevelsGained
+    self.incrementLevels(nLevels)
+    nTreasures = m.getTreasuresGained
+    
+    if nTreasures > 0
+      dealer = CardDealer.instance
+      for i in 1..nTreasures
+        treasure = dealer.nextTreasure
+        @hiddenTreasures << treasure
+      end
+    end
     
   end
   
   def applyBadConsequence(m)
-    
+    badConsequence = m.badConsequence
+    nLevels = badConsequence.levels
+    self.decrementLevels(nLevels)
+    pendingBad = badConsequence.adjustToFitTreasureLists(@visibleTreasures, @hiddenTreasures)
+    self.setPendingBadConsequence(pendingBad)
   end
   
   def canMakeTreasureVisible(t)
@@ -177,25 +192,46 @@ class Player
   end
   
   def initTreasures()
+    dealer = CardDealer.instance
+    dice = Dice.instance 
+    self.bringToLife
+    treasure = dealer.nextTreasure
+    @hiddenTreasures << treasure
+    number = dice.nextNumber
     
+    if number>1
+      treasure = dealer.nextTreasure
+      @hiddenTreasures << treasure
+    end
+    
+    if number == 6
+      treasure = dealer.nextTreasure
+      @hiddenTreasures << treasure
+    end
+ 
   end
   
   def stealTreasure()
-    
+    canI = self.canISteal
+    if canI 
+      canYou = @enemy.canYouGiveMeATreasure
+      if canYou
+        treasure = @enemy.giveMeATreasure
+        @hiddenTreasures << treasure
+        self.haveStolen
+        return treasure
+      end
+    end
+    return nil
   end
-  
-
-  
-  #  def canISteal()
-  #    @canSteal
-  #  end
-  
-  
-  
-  
-  
-  def discardAllTreasures()
     
+  def discardAllTreasures()
+    @visibleTreasures.each do |vtreasure|
+      self.discardVisibleTreasure(vtreasure)
+    end
+    @hiddenTreasures.each do |htreasure|
+      self.discardHiddenTreasure(htreasure)
+    end
   end
   
   

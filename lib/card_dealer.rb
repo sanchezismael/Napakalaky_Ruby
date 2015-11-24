@@ -6,7 +6,7 @@ module Napakalaki
   require 'singleton'
   class CardDealer
 
-    include singleton
+    include Singleton
     
     private
     def initialize

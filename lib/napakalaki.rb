@@ -19,7 +19,9 @@ class Napakalaki
   
   private
   def initPlayer(names)
-    names.each { |i| players << Player.new(i) }
+    names.each do |i| 
+    @players << Player.new(i)
+    end
   end
   
   def nextPlayer()

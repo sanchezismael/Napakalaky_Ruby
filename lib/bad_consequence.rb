@@ -70,7 +70,41 @@ class BadConsequence
     end
     
     def adjustToFitTreasureLists(v,h)
+      bc = nil
+      if @nVisibleTreasures > 0
+        if @nVisibleTreasures > v.size
+          bc.nVisibleTrasures = v.size
+        else
+          bc.nVisibleTrasures = @nVisibleTreasures
+        end
       
+      else 
+        @specificVisibleTreasures.each do |specificVisibleTreasure|
+          v.each do |treasure|
+            if treasure.type == specificVisibleTreasure
+              bc.specificVisibleTreasures << specificVisibleTreasure
+            end
+          end
+        end
+      end
+      
+      if @nHiddenTreasures > 0
+        if @nHiddenTreasures > h.size
+          bc.nHiddenTrasures = h.size
+        else
+          bc.nHiddenTrasures = @nHiddenTreasures
+        end
+      
+      else 
+        @specificHiddenTreasures.each do |specificHiddenTreasure|
+          h.each do |treasure|
+            if treasure.type == specificHiddenTreasure
+              bc.specificHiddenTreasures << specificHiddenTreasure
+            end
+          end
+        end
+      end
+
     end
     
     def to_s

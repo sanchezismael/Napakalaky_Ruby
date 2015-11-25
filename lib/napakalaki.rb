@@ -26,15 +26,15 @@ class Napakalaki
   
   def nextPlayer()
     if @currentPlayer == nil
-      jugador = rand(@players.size)
+      indice = rand(@players.size)
     else
       if @players.size == @players.index(@currentPlayer)
-        jugador = 0
+        indice = 0
       else
-        jugador = @players.index(@currentPlayer) + 1
+        indice = @players.index(@currentPlayer) + 1
       end
     end
-    return jugador
+    return @players.at(indice)
   end
   
   def nextTurnAllowed()

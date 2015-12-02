@@ -5,6 +5,7 @@
 module Napakalaki
 
   require 'singleton'
+  require_relative 'treasure.rb'
   class CardDealer
 
     include Singleton

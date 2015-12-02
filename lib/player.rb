@@ -18,7 +18,8 @@ class Player
   end
   
   attr_reader :name, :level, :hiddenTreasures, :visibleTreasures, :dead, :canISteal
-  attr_writer :pendingBadConsequence, :enemy
+  attr_writer :pendingBadConsequence
+  attr_accessor :enemy
   
   
   private
@@ -226,10 +227,12 @@ class Player
   end
     
   def discardAllTreasures()
-    @visibleTreasures.each do |vtreasure|
+    cvisibleTreasures = Array.new(@visibleTreasures)
+    cvisibleTreasures.each do |vtreasure|
       self.discardVisibleTreasure(vtreasure)
     end
-    @hiddenTreasures.each do |htreasure|
+    chiddenTreasures = Array.new(@hiddenTreasures)
+    chiddenTreasures.each do |htreasure|
       self.discardHiddenTreasure(htreasure)
     end
   end

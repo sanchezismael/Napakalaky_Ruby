@@ -1,3 +1,4 @@
+#encoding: utf-8
 # To change this license header, choose License Headers in Project Properties.
 # To change this template file, choose Tools | Templates
 # and open the template in the editor.
@@ -99,7 +100,7 @@ module Napakalaki
 
       #Los hondos
       pHondos = Prize.new(2,1)
-      bHondos = BadConsequence.newDeath('Estos monstruos resultan bastante superdiciales y te aburren mortalmente. Estás muerto')
+      bHondos = BadConsequence.newDeath('Estos monstruos resultan bastante superdiciales y te aburren mortalmente. Estás muerto',true)
       @unusedMonsters << Monster.new('Los hondos', 8, bHondos, pHondos)
 
       #Semillas Cthulhu
@@ -119,12 +120,12 @@ module Napakalaki
 
       #Yskhtihyssg-Goth
       pYskhtihyssg = Prize.new(3,1)
-      bYskhtihyssg = BadConsequence.newDeath('No le hace gracia que pronuncien mal su nombre. Estas muerto')
+      bYskhtihyssg = BadConsequence.newDeath('No le hace gracia que pronuncien mal su nombre. Estas muerto',true)
       @unusedMonsters << Monster.new('Yskhtihyssg-Goth', 12, bYskhtihyssg, pYskhtihyssg)
 
       #Familia Feliz
       pFamiliaFeliz = Prize.new(4,1)
-      bFamiliaFeliz = BadConsequence.newDeath('La familia te atrapa. Estas muerto.')
+      bFamiliaFeliz = BadConsequence.newDeath('La familia te atrapa. Estas muerto.',true)
       @unusedMonsters << Monster.new('Familia Feliz', 1, bFamiliaFeliz, pFamiliaFeliz)
 
       #Roboggoth

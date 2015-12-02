@@ -4,7 +4,7 @@
 require 'singleton'
 require 'card_dealer.rb'
 require 'player.rb'
-
+module Napakalaki
 class Napakalaki
   include Singleton
   
@@ -18,9 +18,9 @@ class Napakalaki
   end
   
   private
-  def initPlayer(names)
+  def initPlayers(names)
     names.each do |i| 
-    @players << Player.new(i)
+      @players << Player.new(i)
     end
   end
   
@@ -37,7 +37,7 @@ class Napakalaki
     return @players.at(indice)
   end
   
-  def nextTurnAllowed()
+  def nextTurnIsAllowed()
     if @currentPlayer == nil
       permitido = true
     else
@@ -50,7 +50,6 @@ class Napakalaki
   def setEnemies()
     index = rand(@players.size)
     i = 0
-    
     while i<@players.size
       while index == i
         index = rand(@players.size)
@@ -113,4 +112,5 @@ class Napakalaki
     result == (CombatResult::WINGAME)
   end
   
+end
 end

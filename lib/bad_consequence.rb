@@ -70,7 +70,7 @@ class BadConsequence
     end
     
     def adjustToFitTreasureLists(v,h)
-      bc = nil
+      bc = BadConsequence.newDeath('',false)
       if @nVisibleTreasures > 0
         if @nVisibleTreasures > v.size
           bc.nVisibleTrasures = v.size

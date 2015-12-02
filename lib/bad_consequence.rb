@@ -55,9 +55,9 @@ class BadConsequence
       elsif nVisibleTreasures > 0
         @nVisibleTreasures -= 1
       end
-      end
     end
     
+
     def substractHiddenTreasure(t)
       
 #      Misma duda que en JAVA
@@ -107,6 +107,12 @@ class BadConsequence
 
     end
     
+    def self.getmaxtreasures
+      @@MAXTREASURES
+    end
+    
+   
+    
     def to_s
       "Mal rollo: #{@text}
       Niveles perdidos: #{@levels}
@@ -124,5 +130,5 @@ class BadConsequence
 #    
 #    puts "Un_Bad: #{un_bad.specificVisibleTreasures}"
 #    puts "Un_Bad: #{un_bad.specificHiddenTreasures}"
-  
+end
 end

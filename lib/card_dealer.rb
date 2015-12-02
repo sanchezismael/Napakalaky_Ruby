@@ -6,6 +6,10 @@ module Napakalaki
 
   require 'singleton'
   require_relative 'treasure.rb'
+  require_relative 'treasure_kind.rb'
+  require_relative 'monster.rb'
+  require_relative 'prize.rb'
+  require_relative 'bad_consequence.rb'
   class CardDealer
 
     include Singleton
@@ -46,7 +50,7 @@ module Napakalaki
       @unusedTreasures << Treasure.new("Mazo d elos antiguos", 3, [TreasureKind::ONEHAND])
       @unusedTreasures << Treasure.new("Necroplayboycón", 3, [TreasureKind::ONEHAND])
       @unusedTreasures << Treasure.new("Porra preternatural", 2, [TreasureKind::ONEHAND])
-      @unusedTreasures << Treasure.new("Shogulador",1 , [TreasureKind::BOTHHAND])
+      @unusedTreasures << Treasure.new("Shogulador",1 , [TreasureKind::BOTHHANDS])
       @unusedTreasures << Treasure.new("Varita de atizamiento", 3, [TreasureKind::ONEHAND])
       @unusedTreasures << Treasure.new("Tentáculo de pega",2 , [TreasureKind::HELMET])
       @unusedTreasures << Treasure.new("Zapato deja-amigos",1 , [TreasureKind::SHOES])
@@ -76,7 +80,7 @@ module Napakalaki
 
       #El gorrón en el umbral
       pGorron = Prize.new(3,1)
-      bGorron = BadConsequence.newLevelNumberOfTreasures('Pierdes todos tus tesoros visibles', 0, BadConsequence.MAXTREASURES, 0)
+      bGorron = BadConsequence.newLevelNumberOfTreasures('Pierdes todos tus tesoros visibles', 0, BadConsequence.getmaxtreasures, 0)
       @unusedMonsters << Monster.new('El gorrón en el umbral', 10, bGorron, pGorron)
 
       #H.P. Munchcraft

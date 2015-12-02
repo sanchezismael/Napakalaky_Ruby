@@ -24,7 +24,7 @@ class GameTester
     @game.initGame(names) 
     
     begin #Mientras dure la partida
-      currentPlayer=@game.getCurrentPlayer()
+      currentPlayer=@game.currentPlayer
       begin #Mientras el jugador se decide a conocer al monstruo
         puts "******* ******* ******* ******* ******* ******* *******"
         puts "\n\n Turno de: " + currentPlayer.to_s() 
@@ -42,7 +42,7 @@ class GameTester
           combatResult = @game.developCombat()
           case combatResult
             when NapakalakiGame::CombatResult::WINGAME then 
-              puts "\n\n       " + currentPlayer.getName()
+              puts "\n\n       " + currentPlayer.name
               puts "\n\n HAS GANADO LA PARTIDA"
               #break está implícito            
             when NapakalakiGame::CombatResult::WIN then
@@ -205,15 +205,15 @@ class GameTester
 #        gets
       when  Command::ShowMonster then 
         puts "\n------- ------- ------- ------- ------- ------- ------- "
-        puts "El monstruo actual es:\n\n" + @game.getCurrentMonster().to_s()
+        puts "El monstruo actual es:\n\n" + @game.currentMonster.to_s()
 #        puts "pulsa enter para seguir"
 #        gets
       when Command::ShowVisibleTreasure then
-        showTreasures("Esta es tu lista de tesoros visibles", aPlayer.getVisibleTreasures(), false)
+        showTreasures("Esta es tu lista de tesoros visibles", aPlayer.visibleTreasures, false)
 #        puts "pulsa enter para seguir"
 #        gets
       when Command::ShowHiddenTreasure then
-        showTreasures("Esta es tu lista de tesoros ocultos", aPlayer.getHiddenTreasures(), false)
+        showTreasures("Esta es tu lista de tesoros ocultos", aPlayer.hiddenTreasures, false)
 #        puts "pulsa enter para seguir"
 #        gets
       when Command::MakeTreasureVisible then

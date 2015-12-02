@@ -1,7 +1,9 @@
 # To change this license header, choose License Headers in Project Properties.
 # To change this template file, choose Tools | Templates
 # and open the template in the editor.
-
+require_relative 'card_dealer.rb'
+require_relative 'dice.rb'
+module Napakalaki
 class Player
   
   @@MAXLEVEL = 10
@@ -43,7 +45,7 @@ class Player
   end
   
   def bringToLife
-    @dead = false;
+    @dead = false
   end
   
   def getCombatLevel()
@@ -195,7 +197,7 @@ class Player
   def initTreasures()
     dealer = CardDealer.instance
     dice = Dice.instance 
-    self.bringToLife
+    bringToLife
     treasure = dealer.nextTreasure
     @hiddenTreasures << treasure
     number = dice.nextNumber
@@ -237,5 +239,19 @@ class Player
     end
   end
   
+  def to_s
+      "Name: #{@name}
+       Level: #{@level}
+       Dead: #{@dead}
+       CanISteal: #{@canISteal} 
+       Enemy: #{@enemy}
+       Visible Treasures: #{@visibleTreasures}
+       Hidden Treasures: #{@hiddenTreasures}"
+    
+       if (@pendingBadConsequence != nil)
+         "pendingBadConsequence: #{@pendingBadConsequence}"
+       end
+  end
   
+end
 end

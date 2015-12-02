@@ -96,13 +96,13 @@ class Napakalaki
   end
   
   def nextTurn
-    stateOK = nextTurnAllowed
+    stateOK = nextTurnIsAllowed
     if(stateOK)
       @currentMonster = @dealer.nextMonster
       @currentPlayer = nextPlayer
       dead = @currentPlayer.dead
       if(dead)
-        @currentPlayer.initTreasure
+        @currentPlayer.initTreasures
       end
     end
     return stateOK

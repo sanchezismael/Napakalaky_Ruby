@@ -210,7 +210,13 @@ module Napakalaki
       initTreasureCardDeck
       initMonsterCardDeck
     end
-
+    
+    def to_s
+      "unusedTreasures: #{@unusedTreasures}
+       usedTreasures: #{@usedTreasures}
+       usedMonsters: #{@usedMonsters}
+       unusedMonsters: #{@unusedMonsters} "
+    end
   end
 
 end

@@ -54,7 +54,7 @@ class Napakalaki
       while index == i
         index = rand(@players.size)
       end
-      @players.at(i).enemy = @player.at(index)
+      @players.at(i).enemy = @players.at(index)
       i+=1
     end
   end

@@ -170,7 +170,7 @@ class Player
     canI = canMakeTreasureVisible(t)
     if(canI)
       @visibleTreasures << t
-      @hiddenTreasure.remove(t)
+      @hiddenTreasures.remove(t)
     end
   end
   

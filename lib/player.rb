@@ -248,10 +248,10 @@ class Player
       "Name: #{@name}
        Level: #{@level}
        Dead: #{@dead}
-       CanISteal: #{@canISteal}
-       Enemy: #{@enemy.to_s}
-       Visible Treasures: #{@visibleTreasures.to_s}
-       Hidden Treasures: #{@hiddenTreasures.to_s}"
+       CanISteal: #{@canISteal}"
+       #Enemy: #{@enemy.to_s}
+       #Visible Treasures: #{@visibleTreasures.to_s}"
+       #Hidden Treasures: #{@hiddenTreasures.to_s}
   end
   
 end

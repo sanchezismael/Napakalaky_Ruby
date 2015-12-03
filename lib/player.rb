@@ -7,6 +7,7 @@ require_relative 'card_dealer.rb'
 require_relative 'dice.rb'
 require_relative 'combat_result.rb'
 require_relative 'bad_consequence.rb'
+require_relative 'treasure_kind.rb'
 
 module Napakalaki
 class Player
@@ -119,21 +120,20 @@ class Player
       elsif i.type == TreasureKind::SHOES
         zapatos += 1
       end
-    
+    end
+    ter = TreasureKind::HELMET
       if (t.type == TreasureKind::ONEHAND && unamano < 2 && dosmanos == 0)
         puedo = true
       elsif (t.type == TreasureKind::BOTHHANDS && unamano == 0 && dosmanos == 0)
         puedo = true
       elsif (t.type == TreasureKind::ARMOR && armadura == 0)
         puedo = true
-      elsif (t.type == TreasureKind::HELMET && casco == 0)
+      elsif (t.type == ter && casco == 0)
         puedo = true
       elsif (t.type == TreasureKind::SHOES && zapatos == 0)
         puedo = true
-      end
-    
-      return puedo
-    end
+      end 
+    return puedo
   end
   
   def howManyVisibleTreasures(tkind)
@@ -248,10 +248,10 @@ class Player
       "Name: #{@name}
        Level: #{@level}
        Dead: #{@dead}
-       CanISteal: #{@canISteal}"
-       #Enemy: #{@enemy.to_s}
-       #Visible Treasures: #{@visibleTreasures.to_s}"
-       #Hidden Treasures: #{@hiddenTreasures.to_s}
+       CanISteal: #{@canISteal}
+       Enemy: #{@enemy.name}
+       Mal Rollo Pendiente: #{@pendingBadConsequence.to_s}"
+  
   end
   
 end

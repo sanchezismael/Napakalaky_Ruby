@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 # To change this license header, choose License Headers in Project Properties.
 # To change this template file, choose Tools | Templates
 # and open the template in the editor.
@@ -245,8 +247,8 @@ class Player
        Dead: #{@dead}
        CanISteal: #{@canISteal}"
 #       Enemy: #{@enemy}
-      "Visible Treasures: #{@visibleTreasures}
-       Hidden Treasures: #{@hiddenTreasures}"
+#      "Visible Treasures: #{@visibleTreasures}
+#       Hidden Treasures: #{@hiddenTreasures}#"
     
 #       if (@pendingBadConsequence != nil)
 #         "pendingBadConsequence: #{@pendingBadConsequence}"

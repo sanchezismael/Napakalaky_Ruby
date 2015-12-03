@@ -47,9 +47,6 @@ class BadConsequence
     end
     
     def substractVisibleTreasure(t)
-      
-#      Misma duda que en JAVA
-
       if @specificVisibleTreasures.include?(t.type)
         @specificVisibleTreasures.delete(t.type)
       elsif nVisibleTreasures > 0
@@ -57,11 +54,7 @@ class BadConsequence
       end
     end
     
-
     def substractHiddenTreasure(t)
-      
-#      Misma duda que en JAVA
-
       if @specificHiddenTreasures.include?(t.type)
         @specificHiddenTreasures.delete(t.type)
       elsif nHiddenTreasures > 0

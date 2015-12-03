@@ -159,13 +159,13 @@ class Player
     if(myLevel > monsterLevel)
       applyPrize(m)
       if(this.level >= MAXLEVEL)
-        combatResult = [CombatResult::WINGAME]
+        combatResult = (CombatResult::WINGAME)
       else
-        combatResult = [CombatResult::WIN]
+        combatResult = (CombatResult::WIN)
       end
     else
       applyBadConsequence(m)
-      combatResult = [CombatResult::LOSE]
+      combatResult = (CombatResult::LOSE)
     end
     return combatResult
   end

@@ -22,7 +22,10 @@ class Monster
   
   
   def to_s
-    "\nNombre: #{@name} \n Nivel de combate: #{@combatLevel} \n Buen rollo: #{@Prize.to_s} \n #{@BadConsequence.to_s}"
+    "Nombre: #{@name}
+     Nivel de combate: #{@combatLevel}
+    Buen rollo: #{@Prize.to_s}
+    Mal rollo: #{@BadConsequence.to_s}"
   end
   
 end

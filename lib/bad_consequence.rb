@@ -63,43 +63,37 @@ class BadConsequence
       end
     end
     
-    def adjustToFitTreasureLists(v,h)
-      bc = BadConsequence.newDeath('',false)
-      if @nVisibleTreasures > 0
-        if @nVisibleTreasures > v.size
-          bc.nVisibleTrasures = v.size
-        else
-          bc.nVisibleTrasures = @nVisibleTreasures
-        end
-      
-      else 
-        @specificVisibleTreasures.each do |specificVisibleTreasure|
-          v.each do |treasure|
-            if treasure.type == specificVisibleTreasure
-              bc.specificVisibleTreasures << specificVisibleTreasure
-            end
-          end
-        end
-      end
-      
-      if @nHiddenTreasures > 0
-        if @nHiddenTreasures > h.size
-          bc.nHiddenTrasures = h.size
-        else
-          bc.nHiddenTrasures = @nHiddenTreasures
-        end
-      
-      else 
-        @specificHiddenTreasures.each do |specificHiddenTreasure|
-          h.each do |treasure|
-            if treasure.type == specificHiddenTreasure
-              bc.specificHiddenTreasures << specificHiddenTreasure
-            end
-          end
-        end
-      end
+    def adjustToFitTreasureLists(v, h)
+            tesoros_visibles = Array.new
+            tesoros_ocultos = Array.new
+            nv = 0
+            nh = 0
+            bc = BadConsequence.newLevelNumberOfTreasures("",0,0,0)
 
-    end
+            if @nHiddenTreasures <= 0 or @nVisibleTreasures <= 0
+                if v.size <= @nVisibleTreasures
+                    nv = v.size
+                else
+                    nv = @nVisibleTreasures
+                end
+
+                if h.size <= @nHiddenTreasures
+                    nh = h.size
+                else
+                    nh = @nHiddenTreasures
+                end
+
+                bc = BadConsequence.newLevelNumberOfTreasures(@text,@levels,nv,nh)
+              
+            elsif @specificHiddenTreasures.empty? or @specificVisibleTreasures.empty?
+                tesoros_visibles = InterseccionTesoros(v, @specificVisibleTreasures)
+                tesoros_ocultos = InterseccionTesoros(h, @specificHiddenTreasures)
+                bc = BadConsequence.newLevelSpecificTreasures(@text,@levels,tesoros_visibles, tesoros_ocultos)
+            end
+
+            return bc
+
+        end
     
     def self.getmaxtreasures
       @@MAXTREASURES
@@ -108,13 +102,7 @@ class BadConsequence
    
     
     def to_s
-      "Name: #{@text}
-      Niveles perdidos: #{@levels}
-      Tesoros visibles perdidos: #{@nVisibleTreasures}
-      Tesoros ocultos perdidos: #{@nHiddenTreasures}
-      Muerto: #{@death} 
-      Tesoros especificos visibles: #{@specificVisibleTreasures}
-      Tesoros especificos ocultos: #{@specificHiddenTreasures}"
+      "Name: #{@text},Niveles perdidos: #{@levels},Tesoros visibles perdidos: #{@nVisibleTreasures},Tesoros ocultos perdidos: #{@nHiddenTreasures},Muerto: #{@death}, Tesoros especificos visibles: #{@specificVisibleTreasures},Tesoros especificos ocultos: #{@specificHiddenTreasures}"
       
       #private :new 
     end

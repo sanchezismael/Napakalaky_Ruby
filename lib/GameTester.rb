@@ -131,7 +131,7 @@ class GameTester
   end
   
   def inputErrorMessage () 
-    puts "\n\n ERROR !!! \n\n Selección errónea. Inténtalo de nuevo.\n\n"
+    puts "\n\n ERROR !!! \n\n Selección erronea. Intentalo de nuevo.\n\n"
   end
     
   def manageDiscardTreasures (visible, aPlayer)
@@ -177,7 +177,7 @@ class GameTester
       menu.each do |c| #se muestran las opciones del menÃº
         puts "#{c.menu}" + " : " + c.text
       end
-      puts "\n Elige una opción: "
+      puts "\n Elige una opcion: "
       capture = gets.chomp
       begin
         option = Integer(capture)

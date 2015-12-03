@@ -63,7 +63,7 @@ class Player
   end
   
   def incrementLevels(l)
-    @level = @leve+l
+    @level = @level + l
     if(@level > MAXLEVEL)
       @level = MAXLEVEL
     end
@@ -78,7 +78,7 @@ class Player
   
   def applyPrize(m)
     nLevels = m.getLevelsGained
-    self.incrementLevels(nLevels)
+    incrementLevels(nLevels)
     nTreasures = m.getTreasuresGained
     
     if nTreasures > 0
@@ -192,6 +192,7 @@ class Player
   end
   
   def validState()
+    
     if(@pendingBadConsequence.isEmpty && @hiddenTreasures.size <=4 )
       true
     else

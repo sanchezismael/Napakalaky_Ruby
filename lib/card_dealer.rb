@@ -23,7 +23,7 @@ module Napakalaki
     end
 
     def initTreasureCardDeck
-      @unusedTreasures << Treasure.new("¡Si mi amo!", 4, TreasureKind::HELMET)
+      @unusedTreasures << Treasure.new("Si mi amo!", 4, TreasureKind::HELMET)
       @unusedTreasures << Treasure.new("Botas de investigacion", 3, (TreasureKind::SHOES))
       @unusedTreasures << Treasure.new("Capucha de Cthulhu", 3, (TreasureKind::HELMET))
       @unusedTreasures << Treasure.new("A prueba de babas", 2, (TreasureKind::ARMOR))
@@ -55,7 +55,7 @@ module Napakalaki
       @unusedTreasures << Treasure.new("Tentaculo de pega",2 , (TreasureKind::HELMET))
       @unusedTreasures << Treasure.new("Zapato deja-amigos",1 , (TreasureKind::SHOES))
       
-      self.shuffleTreasures
+      shuffleTreasures
     end
 
     def initMonsterCardDeck
@@ -155,7 +155,7 @@ module Napakalaki
       bBicefalo = BadConsequence.newLevelSpecificTreasures('Te faltan manos para tanta cabeza. Pierdes 3 niveles y tus tesoros visibles de las manos', 3,[TreasureKind::BOTHHANDS], nil)
       @unusedMonsters << Monster.new('Bicefalo', 20, bBicefalo, pBicefalo)
 
-      self.shuffleMonsters
+      shuffleMonsters
     end
 
     def shuffleTreasures

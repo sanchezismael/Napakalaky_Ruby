@@ -68,6 +68,7 @@ class Napakalaki
     @dealer.giveMonsterBack(@currentMonster)
     return combatResult
     
+    
   end
   
   def discardVisibleTreasures(treasures)

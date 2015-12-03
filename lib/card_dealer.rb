@@ -192,7 +192,7 @@ module Napakalaki
       end
       
       monstruo = @unusedMonsters.at(0)
-      @usedMonsters << monstruo
+      self.giveMonsterBack(@unusedMonster.at(0))
       @unusedTreasures.delete(monstruo)
       
       return monstruo
@@ -211,12 +211,12 @@ module Napakalaki
       initMonsterCardDeck
     end
     
-    def to_s
-      "unusedTreasures: #{@unusedTreasures}
-       usedTreasures: #{@usedTreasures}
-       usedMonsters: #{@usedMonsters}
-       unusedMonsters: #{@unusedMonsters} "
-    end
+#    def to_s
+#      "unusedTreasures: #{@unusedTreasures}
+#       usedTreasures: #{@usedTreasures}
+#       usedMonsters: #{@usedMonsters}
+#       unusedMonsters: #{@unusedMonsters} #"
+#    end
   end
 
 end

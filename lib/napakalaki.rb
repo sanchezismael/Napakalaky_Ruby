@@ -103,8 +103,8 @@ class Napakalaki
     if(stateOK)
       @currentMonster = @dealer.nextMonster
       @currentPlayer = nextPlayer
-      dead = @currentPlayer.dead
-      if(dead)
+      muerto = @currentPlayer.dead
+      if(muerto)
         @currentPlayer.initTreasures
       end
     end

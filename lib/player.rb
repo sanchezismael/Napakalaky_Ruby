@@ -6,6 +6,7 @@
 require_relative 'card_dealer.rb'
 require_relative 'dice.rb'
 require_relative 'combat_result.rb'
+require_relative 'bad_consequence.rb'
 
 module Napakalaki
 class Player
@@ -20,7 +21,7 @@ class Player
     @enemy = nil
     @hiddenTreasures = Array.new
     @visibleTreasures = Array.new
-    @pendingBadConsequence = BadConsequence.newDeath('',false)   
+    @pendingBadConsequence = BadConsequence.newDeath('', false)
   end
   
   attr_reader :name, :level, :hiddenTreasures, :visibleTreasures, :dead, :canISteal
@@ -247,14 +248,10 @@ class Player
       "Name: #{@name}
        Level: #{@level}
        Dead: #{@dead}
-       CanISteal: #{@canISteal}"
-#       Enemy: #{@enemy}
-#      "Visible Treasures: #{@visibleTreasures}
-#       Hidden Treasures: #{@hiddenTreasures}#"
-    
-#       if (@pendingBadConsequence != nil)
-#         "pendingBadConsequence: #{@pendingBadConsequence}"
-#       end
+       CanISteal: #{@canISteal}
+       Enemy: #{@enemy.to_s}
+       Visible Treasures: #{@visibleTreasures.to_s}
+       Hidden Treasures: #{@hiddenTreasures.to_s}"
   end
   
 end

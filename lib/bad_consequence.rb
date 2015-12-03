@@ -24,7 +24,7 @@ class BadConsequence
   
     def self.newLevelNumberOfTreasures(aText, someLevels, someVisibleTreasures, 
         someHiddenTreasures)
-      new(aText, someLevels, someVisibleTreasures, someHiddenTreasures,nil,nil,
+      new(aText, someLevels, someVisibleTreasures, someHiddenTreasures,Array.new,Array.new,
       false)      
     end
     
@@ -35,12 +35,12 @@ class BadConsequence
     end
     
     def self.newDeath(aText, death)
-      new(aText,0,0,0,nil,nil,death)
+      new(aText,0,0,0,Array.new,Array.new,death)
     end
     
     def isEmpty()
       if(@levels == 0 && @nVisibleTreasures ==0 && @nHiddenTreasures == 0 && !@death)
-        if(@specificHiddenTreasures.empty? && @specificVisibleTreasures.empty?)
+        if(@specificHiddenTreasures.size == 0 && @specificVisibleTreasures.size == 0)
           true
         end
       end
@@ -116,7 +116,7 @@ class BadConsequence
       Tesoros especificos visibles: #{@specificVisibleTreasures}
       Tesoros especificos ocultos: #{@specificHiddenTreasures}"
       
-      private_class_method :new 
+      #private :new 
     end
     
 #    un_bad = BadConsequence.newLevelSpecificTreasures('Pierdes la armadura visible',0, [TreasureKind::ARMOR], [TreasureKind::ARMOR])

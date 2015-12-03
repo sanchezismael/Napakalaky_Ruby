@@ -176,7 +176,7 @@ module Napakalaki
       end
       
       tesoro = @unusedTreasures.at(0)
-      @usedTreasures << tesoro
+      giveTreasureBack(tesoro)
       @unusedTreasures.delete(tesoro)
       
       return tesoro
@@ -192,8 +192,8 @@ module Napakalaki
       end
       
       monstruo = @unusedMonsters.at(0)
-      @usedMonsters << monstruo
-      @unusedTreasures.delete(monstruo)
+      self.giveMonsterBack(monstruo)
+      @unusedMonsters.delete(monstruo)
       
       return monstruo
     end

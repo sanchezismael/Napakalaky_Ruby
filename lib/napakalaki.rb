@@ -64,7 +64,7 @@ class Napakalaki
   public
   
   def developCombat
-    combatResult = @currentPlayer.combat(@currentMonster)
+    combatResult = @currentplayer.combat(@currentMonster)
     @dealer.giveMonsterBack(@currentMonster)
     return combatResult
     

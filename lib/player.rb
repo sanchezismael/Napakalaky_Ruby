@@ -5,8 +5,6 @@
 # and open the template in the editor.
 require_relative 'card_dealer.rb'
 require_relative 'dice.rb'
-require_relative 'combat_result.rb'
-
 module Napakalaki
 class Player
   
@@ -92,9 +90,9 @@ class Player
   def applyBadConsequence(m)
     badConsequence = m.badConsequence
     nLevels = badConsequence.levels
-    decrementLevels(nLevels)
+    self.decrementLevels(nLevels)
     pendingBad = badConsequence.adjustToFitTreasureLists(@visibleTreasures, @hiddenTreasures)
-    @pendingBadConsequence = pendingBad
+    self.setPendingBadConsequence(pendingBad)
   end
   
   def canMakeTreasureVisible(t)
@@ -155,7 +153,7 @@ class Player
 
   def combat(m)
     myLevel = getCombatLevel
-    monsterLevel = m.combatLevel
+    monsterLevel = m.getCombatLevel
     if(myLevel > monsterLevel)
       applyPrize(m)
       if(this.level >= MAXLEVEL)

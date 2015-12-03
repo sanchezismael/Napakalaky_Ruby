@@ -54,7 +54,6 @@ class BadConsequence
       end
     end
     
-
     def substractHiddenTreasure(t)
       if @specificHiddenTreasures.include?(t.type)
         @specificHiddenTreasures.delete(t.type)

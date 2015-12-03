@@ -243,14 +243,14 @@ class Player
       "Name: #{@name}
        Level: #{@level}
        Dead: #{@dead}
-       CanISteal: #{@canISteal} 
-       Enemy: #{@enemy}
-       Visible Treasures: #{@visibleTreasures}
+       CanISteal: #{@canISteal}"
+#       Enemy: #{@enemy}
+      "Visible Treasures: #{@visibleTreasures}
        Hidden Treasures: #{@hiddenTreasures}"
     
-       if (@pendingBadConsequence != nil)
-         "pendingBadConsequence: #{@pendingBadConsequence}"
-       end
+#       if (@pendingBadConsequence != nil)
+#         "pendingBadConsequence: #{@pendingBadConsequence}"
+#       end
   end
   
 end

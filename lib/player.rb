@@ -16,7 +16,7 @@ class Player
     @enemy = nil
     @hiddenTreasures = Array.new
     @visibleTreasures = Array.new
-    @pendingBadConsequence = nil   
+    @pendingBadConsequence = BadConsequence.newDeath('',false)   
   end
   
   attr_reader :name, :level, :hiddenTreasures, :visibleTreasures, :dead, :canISteal
@@ -170,12 +170,12 @@ class Player
     canI = canMakeTreasureVisible(t)
     if(canI)
       @visibleTreasures << t
-      @hiddenTreasures.remove(t)
+      @hiddenTreasures.delete(t)
     end
   end
   
   def discardVisibleTreasure(t)
-    @visibleTreasures.remove_instance_variable(t)
+    @visibleTreasures.delete(t)
     if(@pendingBadConsequence != nil && (!pendingBadConsequence.isEmpty))
       @pendingBadConsequence.substractVisibleTreasure(t)
     end

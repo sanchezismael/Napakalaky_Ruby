@@ -121,14 +121,14 @@ class Player
         zapatos += 1
       end
     end
-    ter = TreasureKind::HELMET
+    
       if (t.type == TreasureKind::ONEHAND && unamano < 2 && dosmanos == 0)
         puedo = true
       elsif (t.type == TreasureKind::BOTHHANDS && unamano == 0 && dosmanos == 0)
         puedo = true
       elsif (t.type == TreasureKind::ARMOR && armadura == 0)
         puedo = true
-      elsif (t.type == ter && casco == 0)
+      elsif (t.type == TreasureKind::HELMET && casco == 0)
         puedo = true
       elsif (t.type == TreasureKind::SHOES && zapatos == 0)
         puedo = true

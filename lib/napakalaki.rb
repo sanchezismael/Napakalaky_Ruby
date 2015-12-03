@@ -30,7 +30,7 @@ class Napakalaki
     if @currentPlayer == nil
       indice = rand(@players.size)
     else
-      if @players.size == @players.index(@currentPlayer)
+      if (@players.size-1) == @players.index(@currentPlayer)
         indice = 0
       else
         indice = @players.index(@currentPlayer) + 1

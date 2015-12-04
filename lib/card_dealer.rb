@@ -156,6 +156,7 @@ module Napakalaki
       @unusedMonsters << Monster.new('Bicefalo', 20, bBicefalo, pBicefalo)
 
       shuffleMonsters
+      
     end
 
     def shuffleTreasures

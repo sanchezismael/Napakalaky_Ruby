@@ -131,8 +131,9 @@ class BadConsequence
     def to_s
       "Name: #{@text},Niveles perdidos: #{@levels},Tesoros visibles perdidos: #{@nVisibleTreasures},Tesoros ocultos perdidos: #{@nHiddenTreasures},Muerto: #{@death}, Tesoros especificos visibles: #{@specificVisibleTreasures},Tesoros especificos ocultos: #{@specificHiddenTreasures}"
       
-      #private :new 
+       
     end
+    private_class_method :new
     
 #    un_bad = BadConsequence.newLevelSpecificTreasures('Pierdes la armadura visible',0, [TreasureKind::ARMOR], [TreasureKind::ARMOR])
 #    puts un_bad.to_s

@@ -88,6 +88,9 @@ class BadConsequence
                 bc = BadConsequence.newLevelNumberOfTreasures(@text,0,nv,nh)
             else
               esta = false
+              if @specificVisibleTreasures == nil
+                @specificVisibleTreasures = Array.new
+              end
               @specificVisibleTreasures.each do |specificVisibleTreasure|
                 v.each do |treasure|	
                   if treasure.type == specificVisibleTreasure
@@ -99,7 +102,9 @@ class BadConsequence
                 
                 end  
               end
-              
+              if @specificHiddenTreasures == nil
+                @specificHiddenTreasures = Array.new
+              end
               @specificHiddenTreasures.each do |specificHiddenTreasure|
                 v.each do |treasure|	
                   if treasure.type == specificHiddenTreasure

@@ -70,14 +70,14 @@ class BadConsequence
             nh = 0
             bc = BadConsequence.newLevelNumberOfTreasures("",0,0,0)
 
-            if @nHiddenTreasures <= 0 or @nVisibleTreasures <= 0
-                if v.size <= @nVisibleTreasures
+            if @nHiddenTreasures > 0 or @nVisibleTreasures > 0
+                if @nVisibleTreasures > v.size  
                     nv = v.size
                 else
                     nv = @nVisibleTreasures
                 end
 
-                if h.size <= @nHiddenTreasures
+                if @nHiddenTreasures > h.size
                     nh = h.size
                 else
                     nh = @nHiddenTreasures

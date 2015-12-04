@@ -181,7 +181,7 @@ class Player
   
   def discardVisibleTreasure(t)
     @visibleTreasures.delete(t)
-    if(@pendingBadConsequence != nil && (!pendingBadConsequence.isEmpty))
+    if(@pendingBadConsequence != nil && (!@pendingBadConsequence.isEmpty))
       @pendingBadConsequence.substractVisibleTreasure(t)
     end
     dielfNoTreasures

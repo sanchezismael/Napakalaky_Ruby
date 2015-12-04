@@ -71,24 +71,26 @@ class BadConsequence
             bc = BadConsequence.newLevelNumberOfTreasures("",0,0,0)
 
             if @nHiddenTreasures > 0 or @nVisibleTreasures > 0
-                if @nVisibleTreasures > v.size  
-                    nv = v.size
+                if @nVisibleTreasures > v.size 
+                  nv = v.size
+                    
+                    
                 else
-                    nv = @nVisibleTreasures
+                  nv = @nVisibleTreasures  
                 end
 
                 if @nHiddenTreasures > h.size
-                    nh = h.size
+                  nh = h.size                    
                 else
-                    nh = @nHiddenTreasures
+                  nh = @nHiddenTreasures
                 end
 
-                bc = BadConsequence.newLevelNumberOfTreasures(@text,@levels,nv,nh)
+                bc = BadConsequence.newLevelNumberOfTreasures(@text,0,nv,nh)
               
             elsif @specificHiddenTreasures.empty? or @specificVisibleTreasures.empty?
                 tesoros_visibles = InterseccionTesoros(v, @specificVisibleTreasures)
                 tesoros_ocultos = InterseccionTesoros(h, @specificHiddenTreasures)
-                bc = BadConsequence.newLevelSpecificTreasures(@text,@levels,tesoros_visibles, tesoros_ocultos)
+                bc = BadConsequence.newLevelSpecificTreasures(@text,0,tesoros_visibles, tesoros_ocultos)
             end
 
             return bc

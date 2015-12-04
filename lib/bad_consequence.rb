@@ -86,16 +86,36 @@ class BadConsequence
                 end
 
                 bc = BadConsequence.newLevelNumberOfTreasures(@text,0,nv,nh)
+            else
+              esta = false
+              @specificVisibleTreasures.each do |specificVisibleTreasure|
+                v.each do |treasure|	
+                  if treasure.type == specificVisibleTreasure
+                    esta = true
+                end
+                  if(esta)
+                    tesoros_visibles << specificVisibleTreasure
+                  end             
+                
+                end  
+              end
               
-            elsif @specificHiddenTreasures.empty? or @specificVisibleTreasures.empty?
-                tesoros_visibles = InterseccionTesoros(v, @specificVisibleTreasures)
-                tesoros_ocultos = InterseccionTesoros(h, @specificHiddenTreasures)
-                bc = BadConsequence.newLevelSpecificTreasures(@text,0,tesoros_visibles, tesoros_ocultos)
-            end
-
+              @specificHiddenTreasures.each do |specificHiddenTreasure|
+                v.each do |treasure|	
+                  if treasure.type == specificHiddenTreasure
+                    esta = true
+                end
+                  if(esta)
+                    tesoros_ocultos << specificHiddenTreasure
+                  end             
+                
+                end  
+              end
+              bc = BadConsequence.newLevelSpecificTreasures(@text,0,tesoros_visibles, tesoros_ocultos)
             return bc
 
         end
+    end
     
     def self.getmaxtreasures
       @@MAXTREASURES

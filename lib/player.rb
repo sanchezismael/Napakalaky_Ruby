@@ -231,7 +231,7 @@ class Player
       if canYou
         treasure = @enemy.giveMeATreasure
         @hiddenTreasures << treasure
-        self.haveStolen
+        haveStolen
         return treasure
       end
     end

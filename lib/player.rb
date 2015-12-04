@@ -30,7 +30,7 @@ class Player
   attr_accessor :enemy
   
   
-  private
+  
   
   def giveMeATreasure()
     #    return @hiddenTreasures.sample Ruby 2.0 -> Estamos usando 1.7.3
@@ -45,7 +45,7 @@ class Player
       true
     end
   end
-  
+  private
   def haveStolen
     @canSteal = false
   end
@@ -64,8 +64,8 @@ class Player
   
   def incrementLevels(l)
     @level = @level + l
-    if(@level > MAXLEVEL)
-      @level = MAXLEVEL
+    if(@level > @@MAXLEVEL)
+      @level = @@MAXLEVEL
     end
   end
   
@@ -159,7 +159,7 @@ class Player
     monsterLevel = m.combatLevel
     if(myLevel > monsterLevel)
       applyPrize(m)
-      if(this.level >= MAXLEVEL)
+      if(@level >= @@MAXLEVEL)
         combatResult = (CombatResult::WINGAME)
       else
         combatResult = (CombatResult::WIN)
@@ -188,7 +188,11 @@ class Player
   end
   
   def discardHiddenTreasure(t)
-    
+    @hiddenTreasures.delete(t)
+    if(@pendingBadConsequence != nil && (!pendingBadConsequence.isEmpty))
+      @pendingBadConsequence.substractHiddenTreasure(t)
+    end
+    dielfNoTreasures
   end
   
   def validState()

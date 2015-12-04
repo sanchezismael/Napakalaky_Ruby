@@ -17,7 +17,7 @@ class Monster
   end
   
   def getTreasuresGained
-    @badConsequece.levels
+    @badConsequence.levels
   end
   
   

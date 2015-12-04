@@ -145,9 +145,9 @@ class GameTester
       option = getTreasure (howMany)
       if (option > -1) then 
         if visible then
-          @game.discardVisibleTreasures ([aPlayer.getVisibleTreasures().at(option)])
+          @game.discardVisibleTreasures ([aPlayer.visibleTreasures.at(option)])
         else
-          @game.discardHiddenTreasures ([aPlayer.getHiddenTreasures().at(option)])          
+          @game.discardHiddenTreasures ([aPlayer.hiddenTreasures.at(option)])          
         end
       end
     end while (option != -1)  

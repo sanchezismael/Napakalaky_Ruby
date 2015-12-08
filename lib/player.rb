@@ -29,7 +29,14 @@ class Player
   attr_writer :pendingBadConsequence
   attr_accessor :enemy
   
-  
+  def self.copia(p)
+    @name = p.name
+    @level = p.level
+    @dead = p.dead
+    @visibleTreasures = p.visibleTreasures
+    @hiddenTreasures = p.hiddenTreasures
+    @pendingBadConsequence = p.pendingBadConsequence
+  end
   #contructor de copia como metodo de clase
   protected
   def giveMeATreasure()

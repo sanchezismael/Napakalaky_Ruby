@@ -20,6 +20,7 @@ module Napakalaki
       @usedTreasures = Array.new
       @usedMonsters = Array.new
       @unusedMonsters = Array.new
+      @unusedCultists = Array.new
     end
 
     def initTreasureCardDeck
@@ -158,6 +159,10 @@ module Napakalaki
       shuffleMonsters
       
     end
+    
+    def initCultistCardDeck
+      
+    end
 
     def shuffleTreasures
       @unusedTreasures.shuffle
@@ -165,6 +170,10 @@ module Napakalaki
 
     def shuffleMonsters
       @unusedMonsters.shuffle
+    end
+    
+    def shuffleCultists
+      @unusedCultists.shuffle
     end
 
     public
@@ -197,6 +206,10 @@ module Napakalaki
       @unusedMonsters.delete(monstruo)
       
       return monstruo
+    end
+    
+    def nextCultist
+      
     end
 
     def giveTreasureBack(t)

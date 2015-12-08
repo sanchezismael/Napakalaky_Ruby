@@ -161,7 +161,12 @@ module Napakalaki
     end
     
     def initCultistCardDeck
-      
+      @unusedCultists << Cultist.new('Sectario: +1 por cada sectario en juego. No puedes dejar de ser sectario', 1)
+      @unusedCultists << Cultist.new('Sectario: +2 por cada sectario en juego. No puedes dejar de ser sectario', 2)
+      @unusedCultists << Cultist.new('Sectario: +1 por cada sectario en juego. No puedes dejar de ser sectario', 1)
+      @unusedCultists << Cultist.new('Sectario: +2 por cada sectario en juego. No puedes dejar de ser sectario', 2)
+      @unusedCultists << Cultist.new('Sectario: +1 por cada sectario en juego. No puedes dejar de ser sectario', 1)
+      @unusedCultists << Cultist.new('Sectario: +1 por cada sectario en juego. No puedes dejar de ser sectario', 1)
     end
 
     def shuffleTreasures

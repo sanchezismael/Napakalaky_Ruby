@@ -228,6 +228,7 @@ module Napakalaki
     def initCards
       initTreasureCardDeck
       initMonsterCardDeck
+      initCultistsCardDeck
     end
     
     def to_s

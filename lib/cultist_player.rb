@@ -21,7 +21,7 @@ module Napakalaki
     end
 
     def getOponentLevel(m)
-
+      return m.getCombatLevelAgainsCultistPlayer
     end
 
     def shouldConvert
@@ -30,11 +30,16 @@ module Napakalaki
   private
 
     def giveMeAtreasure
-
+      i = rand(@visibleTreasures.size)
+      return @visibleTreasures.at(i)
     end
 
     def canYouGiveMeATreasure
-
+      if(@visibleTreasures.empty?)
+        false
+      else
+        true
+      end
     end
   public  
 

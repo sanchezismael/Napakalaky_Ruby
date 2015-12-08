@@ -41,7 +41,7 @@ class Player
   protected
   
   def getOponentLevel(m)
-    
+    return m.CombatLevel
   end
   
   def shouldConvert
@@ -180,7 +180,7 @@ class Player
 
   def combat(m)
     myLevel = getCombatLevel
-    monsterLevel = m.combatLevel
+    monsterLevel = getOponentLevel(m)
     if(myLevel > monsterLevel)
       applyPrize(m)
       if(@level >= @@MAXLEVEL)

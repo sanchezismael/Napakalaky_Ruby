@@ -39,6 +39,23 @@ class Player
   end
   #contructor de copia como metodo de clase
   protected
+  
+  def getOponentLevel(m)
+    
+  end
+  
+  def shouldConvert
+    
+  end
+  
+  def getCombatLevel()
+    suma = 0
+    @visibleTreasures.each do |i|
+      suma = suma+i.bonus
+    end
+    @level+suma
+  end
+  
   def giveMeATreasure()
     #    return @hiddenTreasures.sample Ruby 2.0 -> Estamos usando 1.7.3
     i = rand(@hiddenTreasures.size)
@@ -51,22 +68,17 @@ class Player
     else
       true
     end
-  end
+  end 
+  
   private
+  
+  
   def haveStolen
     @canSteal = false
   end
   
   def bringToLife
     @dead = false
-  end
-  
-  def getCombatLevel()
-    suma = 0
-    @visibleTreasures.each do |i|
-      suma = suma+i.bonus
-    end
-    @level+suma
   end
   
   def incrementLevels(l)

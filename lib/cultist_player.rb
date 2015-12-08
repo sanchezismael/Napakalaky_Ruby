@@ -3,7 +3,7 @@
 # and open the template in the editor.
 module Napakalaki
   class CultistPlayer<Player
-    @@totalCultisPlayers = 0
+    @@totalCultistPlayers = 0
     def initialize(p,c)
       super(p.name)
       copia(p)
@@ -14,7 +14,9 @@ module Napakalaki
 
     def getCombatLevel
       lvl = super
-      lvl += @myCultistCard.getSpecialValue
+      lvl += lvl*1.2
+      lvl += @myCultistCard.gainedLevels
+      lvl += lvl*@@totalCultistPlayers
       lvl
     end
 
@@ -23,7 +25,7 @@ module Napakalaki
     end
 
     def shouldConvert
-
+      false
     end
   private
 

@@ -45,7 +45,12 @@ class Player
   end
   
   def shouldConvert
-    
+    should = false
+    dice = Dice.instance
+    if dice.nextNumber == 1
+        should = true
+    end
+    should
   end
   
   def getCombatLevel()
@@ -186,6 +191,9 @@ class Player
     else
       applyBadConsequence(m)
       combatResult = (CombatResult::LOSE)
+      if self.shouldConvert
+        return CombatResult::LOSEANDCONVERT
+      end
     end
     return combatResult
   end

@@ -4,12 +4,17 @@
 # and open the template in the editor.
 
 class Monster
-    attr_reader :name, :combatLevel, :badConsequence
-  def initialize(name,level,bc,prize)
+    attr_reader :name, :combatLevel, :badConsequence, :levelChangeAgainstCultisPlayer
+  def initialize(name,level,bc,prize,lc = 0)
     @name = name
     @combatLevel = level
     @prize = prize
     @badConsequence = bc
+    @levelChangeAgainstCultisPlayer = lc
+  end
+  
+  def self.newMonster(n,l,bc,p,lc)
+    new(n,l,bc,p,lc)
   end
   
   def getLevelsGained()
@@ -20,6 +25,9 @@ class Monster
     @badConsequence.levels
   end
   
+  def getCombatLevelAgainstCultisPlayer
+    
+  end
   
   def to_s
     "Nombre: #{@name}

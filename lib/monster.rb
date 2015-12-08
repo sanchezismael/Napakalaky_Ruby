@@ -25,10 +25,6 @@ class Monster
     @badConsequence.levels
   end
   
-  def getCombatLevelAgainstCultisPlayer
-    
-  end
-  
   def to_s
     "Nombre: #{@name}
      Nivel de combate: #{@combatLevel}

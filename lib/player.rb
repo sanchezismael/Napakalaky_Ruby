@@ -30,8 +30,8 @@ class Player
   attr_accessor :enemy
   
   
-  
-  
+  #contructor de copia como metodo de clase
+  protected
   def giveMeATreasure()
     #    return @hiddenTreasures.sample Ruby 2.0 -> Estamos usando 1.7.3
     i = rand(@hiddenTreasures.size)

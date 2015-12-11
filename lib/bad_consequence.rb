@@ -39,6 +39,7 @@ class BadConsequence
     end
     
     def isEmpty()
+      #borrar
       if(@levels == 0 && @nVisibleTreasures ==0 && @nHiddenTreasures == 0 && !@death)
         if(@specificHiddenTreasures.size == 0 && @specificVisibleTreasures.size == 0)
           true

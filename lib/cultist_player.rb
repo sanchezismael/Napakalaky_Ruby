@@ -5,7 +5,6 @@ module Napakalaki
   class CultistPlayer<Player
     @@totalCultistPlayers = 0
     def initialize(p,c)
-      super(p.name)
       copia(p)
       @myCultistCard = c
       @@totalCultisPlayer += 1

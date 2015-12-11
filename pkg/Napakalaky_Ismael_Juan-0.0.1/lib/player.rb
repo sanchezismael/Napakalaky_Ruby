@@ -14,15 +14,15 @@ class Player
   
   @@MAXLEVEL = 10
  
-  def initialize(name)
+  def initialize(name, l=1,d=true,c=true,e=nil,hT=Array.new,vT=Array.new,pbc=BadConsequence.newDeath('', false))
     @name = name
-    @level = 1
-    @dead = true
-    @canISteal = true
-    @enemy = nil
-    @hiddenTreasures = Array.new
-    @visibleTreasures = Array.new
-    @pendingBadConsequence = BadConsequence.newDeath('', false)
+    @level = l
+    @dead = d
+    @canISteal = c
+    @enemy = e
+    @hiddenTreasures = hT
+    @visibleTreasures = vT
+    @pendingBadConsequence = pbc
   end
   
   attr_reader :name, :level, :hiddenTreasures, :visibleTreasures, :dead, :canISteal
@@ -30,12 +30,7 @@ class Player
   attr_accessor :enemy
   
   def self.copia(p)
-    @name = p.name
-    @level = p.level
-    @dead = p.dead
-    @visibleTreasures = p.visibleTreasures
-    @hiddenTreasures = p.hiddenTreasures
-    @pendingBadConsequence = p.pendingBadConsequence
+    new(p.name,p.level,p.dead,p.visibleTreasures,p.hiddenTreasures,p.pendingBadConsequence)
   end
   #contructor de copia como metodo de clase
   protected

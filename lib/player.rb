@@ -68,7 +68,7 @@ class Player
   end
   
   def canYouGiveMeATreasure()   #Los tesoros que se roban son tesoros ocultos
-    if(@hiddenTreasures.empty?) #por tanto, compruebo que tiene tesoros ocultos
+    if(@enemy.hiddenTreasures.empty?) #por tanto, compruebo que tiene tesoros ocultos
       false
     else
       true

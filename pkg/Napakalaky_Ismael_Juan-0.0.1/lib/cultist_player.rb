@@ -14,9 +14,9 @@ module Napakalaki
 
     def getCombatLevel
       lvl = super
-      lvl += lvl*1.2
+      lvl = lvl*1.2
       lvl += @myCultistCard.gainedLevels
-      lvl += lvl*@@totalCultistPlayers
+      lvl = lvl*@@totalCultistPlayers
       lvl
     end
 
@@ -35,7 +35,7 @@ module Napakalaki
     end
 
     def canYouGiveMeATreasure
-      if(@visibleTreasures.empty?)
+      if(@enemy.visibleTreasures.empty?)
         false
       else
         true

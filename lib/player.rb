@@ -14,7 +14,7 @@ class Player
   
   @@MAXLEVEL = 10
  
-  def initialize(name, l=1,d=true,c=true,e=nil,hT=Array.new,vT=Array.new,pbc=BadConsequence.newDeath('', false))
+  def initialize(name, l=1,d=true,c=true,e=nil,hT=Array.new,vT=Array.new,pbc=NumericBadConsequence.new('',0,0,0))
     @name = name
     @level = l
     @dead = d

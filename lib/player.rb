@@ -7,6 +7,7 @@ require_relative 'card_dealer.rb'
 require_relative 'dice.rb'
 require_relative 'combat_result.rb'
 require_relative 'bad_consequence.rb'
+require_relative 'numeric_bad_consequence.rb'
 require_relative 'treasure_kind.rb'
 
 module Napakalaki
@@ -63,7 +64,7 @@ class Player
   end
   
   def canYouGiveMeATreasure()   #Los tesoros que se roban son tesoros ocultos
-    if(@enemy.hiddenTreasures.empty?) #por tanto, compruebo que tiene tesoros ocultos
+    if(@hiddenTreasures.empty?) #por tanto, compruebo que tiene tesoros ocultos
       false
     else
       true

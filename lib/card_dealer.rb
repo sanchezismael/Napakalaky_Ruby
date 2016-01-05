@@ -10,6 +10,11 @@ module Napakalaki
   require_relative 'monster.rb'
   require_relative 'prize.rb'
   require_relative 'bad_consequence.rb'
+  require_relative 'numeric_bad_consequence.rb'
+  require_relative 'specific_bad_consequence.rb'
+  require_relative 'death_bad_consequence.rb'
+  require_relative 'cultist.rb'
+  
   class CardDealer
 
     include Singleton
@@ -128,12 +133,12 @@ module Napakalaki
 
       #Yskhtihyssg-Goth
       pYskhtihyssg = Prize.new(3,1)
-      bYskhtihyssg = DeathBadConsequence.new('No le hace gracia que pronuncien mal su nombre. Estas muerto',true)
+      bYskhtihyssg = DeathBadConsequence.new('No le hace gracia que pronuncien mal su nombre. Estas muerto')
       @unusedMonsters << Monster.new('Yskhtihyssg-Goth', 12, bYskhtihyssg, pYskhtihyssg)
 
       #Familia Feliz
       pFamiliaFeliz = Prize.new(4,1)
-      bFamiliaFeliz = DeathBadConsequence.new('La familia te atrapa. Estas muerto.',true)
+      bFamiliaFeliz = DeathBadConsequence.new('La familia te atrapa. Estas muerto.')
       @unusedMonsters << Monster.new('Familia Feliz', 1, bFamiliaFeliz, pFamiliaFeliz)
 
       #Roboggoth
@@ -179,7 +184,7 @@ module Napakalaki
       #Felpuggoth
       price = Prize.new(1,1)
       badConsequence = SpecificBadConsequence.new('Pierdes tu casco y tu armadura visible. Pierdes tus manos ocultas', 0, [TreasureKind::HELMET, TreasureKind::ARMOR],
-      [TreasureKind::ONEHAND, TreasureKind::BOTHHAND])
+      [TreasureKind::ONEHAND, TreasureKind::BOTHHANDS])
       @unusedMonsters << Monster.new('Felpuggoth', 2, price, badConsequence, 5)
 
       #Shoggoth
@@ -268,7 +273,7 @@ module Napakalaki
     def initCards
       initTreasureCardDeck
       initMonsterCardDeck
-      initCultistsCardDeck
+      initCultistCardDeck
     end
     
     def to_s

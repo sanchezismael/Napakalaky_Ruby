@@ -37,7 +37,7 @@ class Player
   protected
   
   def getOponentLevel(m)
-    return m.CombatLevel
+    return m.combatLevel
   end
   
   def shouldConvert

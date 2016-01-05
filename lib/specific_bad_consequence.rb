@@ -75,7 +75,7 @@ module Napakalaki
         end  
       end
       
-      bc = SpecificBadConsequence(@text,0,tesoros_visibles,tesoros_ocultos)
+      bc = SpecificBadConsequence.new(@text,0,tesoros_visibles,tesoros_ocultos)
       
       return bc  
     end

@@ -250,6 +250,10 @@ module Napakalaki
     end
     
     def nextCultist
+      cultist = @unusedCultist.at(0)
+      @unusedCultist.delete(cultist)
+      
+      return cultist
       
     end
 

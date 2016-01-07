@@ -69,8 +69,8 @@ class Napakalaki
       cartaCultist = @dealer.nextCultist
       cultisPlayer = CultistPlayer.new(@currenPlayer, cartaCultist)
       @Players.each do |player|
-        if(player.ene == @currentPlayer)
-          player.ene = cultistPlayer
+        if(player.enemy == @currentPlayer)
+          player.enemy = cultistPlayer
         end
       end
       @Players.delete(@currentPlayer)
@@ -79,8 +79,6 @@ class Napakalaki
     end 
     @dealer.giveMonsterBack(@currentMonster)
     return combatResult
-    
-    
   end
   
   def discardVisibleTreasures(treasures)

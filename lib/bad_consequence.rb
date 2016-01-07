@@ -8,6 +8,11 @@ class BadConsequence
   
   @@MAXTREASURES = 10
     
+    def initialize(t,l)
+      @text = t
+      @levels = l
+    end
+    
     def isEmpty()
       raise NotImplementedError.new
     end

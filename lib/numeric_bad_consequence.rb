@@ -11,8 +11,7 @@ module Napakalaki
     attr_reader :text, :levels, :nVisibleTreasures, :nHiddenTreasures
   
     def initialize(aText, someLevels, someVisibleTreasures, someHiddenTreasures)
-      @text = aText
-      @levels = someLevels
+      super(aText,someLevels)
       @nVisibleTreasures = someVisibleTreasures
       @nHiddenTreasures = someHiddenTreasures
     end

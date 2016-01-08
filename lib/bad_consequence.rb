@@ -13,8 +13,6 @@ class BadConsequence
       @levels = l
     end
     private_class_method :new
-    
-    attr_reader :text, :levels
     def isEmpty()
       raise NotImplementedError.new
     end

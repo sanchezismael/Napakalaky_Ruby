@@ -15,6 +15,7 @@ module Napakalaki
       @specificHiddenTreasures = someSpecificHiddenTreasures
       @specificVisibleTreasures = someSpecificVisibleTreasures
     end
+    public_class_method :new
     
     def isEmpty()
       if(@specificHiddenTreasures.size == 0 && @specificVisibleTreasures.size == 0)

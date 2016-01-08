@@ -12,7 +12,7 @@ class BadConsequence
       @text = t
       @levels = l
     end
-    
+    private_class_method :new
     def isEmpty()
       raise NotImplementedError.new
     end

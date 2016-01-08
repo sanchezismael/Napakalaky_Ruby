@@ -15,7 +15,7 @@ module Napakalaki
       @nVisibleTreasures = someVisibleTreasures
       @nHiddenTreasures = someHiddenTreasures
     end
-  
+    public_class_method :new
     def isEmpty()
       if(@levels == 0 && @nVisibleTreasures == 0 && @nHiddenTreasures == 0)
         true

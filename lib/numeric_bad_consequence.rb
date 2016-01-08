@@ -8,7 +8,7 @@ module Napakalaki
 
   class NumericBadConsequence < BadConsequence
   
-    attr_reader :text, :levels, :nVisibleTreasures, :nHiddenTreasures
+    attr_reader :nVisibleTreasures, :nHiddenTreasures
   
     def initialize(aText, someLevels, someVisibleTreasures, someHiddenTreasures)
       super(aText,someLevels)

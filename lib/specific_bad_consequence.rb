@@ -8,7 +8,7 @@ module Napakalaki
   
   class SpecificBadConsequence < BadConsequence
     
-    attr_reader :text, :levels, :specificHiddenTreasures, :specificVisibleTreasures
+    attr_reader :specificHiddenTreasures, :specificVisibleTreasures
     
     def initialize (aText, someLevels, someSpecificVisibleTreasures, someSpecificHiddenTreasures)
       super(aText,someLevels)

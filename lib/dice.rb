@@ -16,6 +16,6 @@ class Dice
   
   def nextNumber()
     r = Random.new
-    r.rand(1..6)
+    r.rand(6..6)
   end
 end

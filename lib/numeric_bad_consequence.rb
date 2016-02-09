@@ -22,14 +22,14 @@ module Napakalaki
       end
     end
   
-    def substractVisibleTreasure
-      if nVisibleTreasures > 0
+    def substractVisibleTreasure(t)
+      if @nVisibleTreasures > 0
         @nVisibleTreasures -= 1
       end
     end
   
-    def substractHiddenTreasure
-      if nHiddenTreasures > 0
+    def substractHiddenTreasure(t)
+      if @nHiddenTreasures > 0
         @nHiddenTreasures -= 1
       end
     end

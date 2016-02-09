@@ -27,8 +27,7 @@ class Player
   end
   
   attr_reader :name, :level, :hiddenTreasures, :visibleTreasures, :dead, :canISteal
-  attr_writer :pendingBadConsequence
-  attr_accessor :enemy
+  attr_accessor :enemy, :pendingBadConsequence
   
   def self.copia(p)
     new(p.name,p.level,p.dead,p.visibleTreasures,p.hiddenTreasures,p.pendingBadConsequence)

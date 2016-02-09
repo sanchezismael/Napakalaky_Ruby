@@ -98,7 +98,7 @@ module Napakalaki
 
       #Bichgooth
       pBichgooth = Prize.new(1,1)
-      bBichgooth = NumericBadConsequence.new('Sientes bichos bajo la ropa. Descartas la armadura visible', 0, [TreasureKind::ARMOR], [])
+      bBichgooth = SpecificBadConsequence.new('Sientes bichos bajo la ropa. Descartas la armadura visible', 0, [TreasureKind::ARMOR], [])
       @unusedMonsters << Monster.new('Bichgooth', 2, bBichgooth, pBichgooth)
 
       #El rey de rosa
@@ -143,7 +143,7 @@ module Napakalaki
 
       #Roboggoth
       pRoboggoth = Prize.new(2, 1)
-      bRoboggoth = NumericBadConsequence.new('La quinte directiva primaria te obliga a perder 2 niveles y un tesoro de 2 manos visible', 2, [TreasureKind::BOTHHANDS], [])
+      bRoboggoth = SpecificBadConsequence.new('La quinta directiva primaria te obliga a perder 2 niveles y un tesoro de 2 manos visible', 2, [TreasureKind::BOTHHANDS], [])
       @unusedMonsters << Monster.new('Roboggoth', 8, bRoboggoth, pRoboggoth)
 
       #El Espía
@@ -255,8 +255,8 @@ module Napakalaki
     end
     
     def nextCultist
-      cultist = @unusedCultist.at(0)
-      @unusedCultist.delete(cultist)
+      cultist = @unusedCultists.at(0)
+      @unusedCultists.delete(cultist)
       
       return cultist
       

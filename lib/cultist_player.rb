@@ -5,7 +5,7 @@ module Napakalaki
   class CultistPlayer<Player
     @@totalCultistPlayers = 0
     def initialize(p,c)
-      copia(p)
+      super self.copia(p)
       @myCultistCard = c
       @@totalCultisPlayer += 1
     end
@@ -26,6 +26,7 @@ module Napakalaki
     def shouldConvert
       false
     end
+    
   private
 
     def giveMeAtreasure
@@ -42,8 +43,8 @@ module Napakalaki
     end
   public  
 
-    def getTotalCultisPlayers
-
+    def getTotalCultistPlayers
+      @@totalCultisPlayer
     end 
 
   end
